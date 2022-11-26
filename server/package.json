@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server side statblock package.json",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kwlucas/Statblock.git"
+  },
+  "author": "Kyle, Seth, Brendon, Andrew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kwlucas/Statblock/issues"
+  },
+  "homepage": "https://github.com/kwlucas/Statblock#readme",
+  "dependencies": {
+    "apollo-server-express": "^3.11.1",
+    "bcrypt": "^5.1.0",
+    "express": "^4.18.2",
+    "graphql": "^16.6.0",
+    "mongoose": "^6.7.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
