@@ -1,0 +1,27 @@
+.NavBar{
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    justify-content: space-between;
+
+    .App-logo {
+        width: 10rem;
+      }
+
+    .NavBar-links{
+        display: flex;
+        justify-content: flex-end;
+
+        .App-link {
+            color: #61dafb;
+            }
+
+    }
+  
+
+
+
+}
+
+
+  
