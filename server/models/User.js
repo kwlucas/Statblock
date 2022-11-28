@@ -15,6 +15,12 @@ const userSchema = new Schema({
     password: {
       type: String,
       required: true,
-    }
+    },
+    characters: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Character',
+        },
+    ],
 });
   
