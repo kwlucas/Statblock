@@ -16,3 +16,7 @@ const characterSchema = new Schema({
         ref: 'Statset',
     },
 });
+
+const Character = model('character', characterSchema);
+
+module.exports = Character;
