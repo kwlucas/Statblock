@@ -11,4 +11,8 @@ const characterSchema = new Schema({
     description: {
         type: String,
     },
+    stats: {
+        type: Schema.Types.ObjectId,
+        ref: 'Statset',
+    },
 });
