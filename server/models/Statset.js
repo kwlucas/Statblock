@@ -114,4 +114,23 @@ const statsetSchema = new Schema({
             default: 'none'
         },
     },
+    spellSlots: [Number], //Index of number coresponds to the spell slot level
+    traits: [
+        {
+            feature: String,
+            details: String,
+            priority: Number //Number that determines order of listing
+        }
+    ],
+    inventory: [
+        {
+            item: String,
+            quantity: {
+                type: Number,
+                default: 1
+            },
+            details: String,
+            priority: Number
+        }
+    ],
 });
