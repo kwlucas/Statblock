@@ -134,3 +134,7 @@ const statsetSchema = new Schema({
         }
     ],
 });
+
+const Statset = model('statset', statsetSchema);
+
+module.exports = Statset;
