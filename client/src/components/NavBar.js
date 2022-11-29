@@ -5,13 +5,13 @@ import LoginForm from "./LoginForm";
 
 import logo from "../logo.svg";
 
-function AppNavBar() {
+function NavBar() {
   return (
     <div className="NavBar">
       <img src={logo} className="App-logo" alt="logo" as={Link} to="/" />
-      <div className="NavBar-links">
+      <div className="NavBar-Links">
         <a
-          className="App-link"
+          className="App-Links"
           href="./components/Tools.js"
           target="_blank"
           rel="noopener noreferrer"
@@ -19,16 +19,24 @@ function AppNavBar() {
           Tools
         </a>
         <a
-          className="App-link"
+          className="App-Links"
           href="./components/Profile.js"
           target="_blank"
           rel="noopener noreferrer"
         >
           Profile
         </a>
+        <a
+          className="App-Links"
+          href="./components/Account.js"
+          target="_blank"
+          rel="noopener norefferer"
+        >
+          Login/Signup
+        </a>
       </div>
     </div>
   );
 }
 
-export default AppNavBar;
+export default NavBar;
