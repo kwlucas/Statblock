@@ -3,21 +3,24 @@
     align-items: center;
     max-width: 100%;
     justify-content: space-between;
+    margin: 2rem;
 
     .App-logo {
-        width: 10rem;
+        width: 9rem;
       }
 
-    .NavBar-links{
+    .NavBar-Links{
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
 
-        .App-link {
-            color: #61dafb;
+        .App-Links {
+            display: flex;
+            justify-content: flex-end;
+            text-decoration: none;
+            color: white;
+            margin-left: 2rem;
             }
-
     }
-  
 
 
 
