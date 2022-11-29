@@ -1,0 +1,25 @@
+body {
+  background-color: #282c34;
+}
+
+.NavBar {
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  justify-content: space-between;
+  margin: 2rem;
+}
+.NavBar .App-logo {
+  width: 9rem;
+}
+.NavBar .NavBar-Links {
+  display: flex;
+  justify-content: space-between;
+}
+.NavBar .NavBar-Links .App-Links {
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: none;
+  color: white;
+  margin-left: 2rem;
+}/*# sourceMappingURL=AllStyles.css.map */
