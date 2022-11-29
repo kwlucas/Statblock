@@ -9,6 +9,9 @@ const statsetSchema = new Schema({
     class: {
         type: String,
     },
+    background: {
+        type: String,
+    },
     level: {
         type: Number,
     },
