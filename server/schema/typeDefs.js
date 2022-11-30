@@ -1,15 +1,15 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-    type Character {
+  type Character {
     _id: ID
     name: String
     race: String
     description: String
     statset: [Statset]
-    }
+  }
 
-    type Statset {
+  type Statset {
     _id: ID
     type: String
     class: String
@@ -78,6 +78,7 @@ const typeDefs = gql`
     userId: ID!
     votes: Int
   }
+
   type Auth {
       token: ID!
       user: User
@@ -90,11 +91,10 @@ const typeDefs = gql`
     description: String
     statset: Statset
   }
+
   input Statset {
       _id: ID
-
   }
-
 
   type Query {
     users: [Users]
