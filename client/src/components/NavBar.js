@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import SignUpForm from "./SignUpForm";
-import LoginForm from "./LoginForm";
 
 import logo from "../logo.svg";
 
@@ -12,27 +10,35 @@ function NavBar() {
       <div className="NavBar-Links">
         <a
           className="App-Links"
-          href="./components/Tools.js"
+          href="./components/Home.js"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Tools
+          Home
         </a>
         <a
           className="App-Links"
-          href="./components/Profile.js"
+          href="./components/Dashboard.js"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Profile
+          Dashboard
         </a>
         <a
           className="App-Links"
-          href="./components/Account.js"
+          href="./components/CharacterCreation.js"
           target="_blank"
           rel="noopener norefferer"
         >
-          Login/Signup
+          CharacterCreation
+        </a>
+        <a
+          className="App-Links"
+          href="./components/CharacterSheets.js"
+          target="_blank"
+          rel="noopener norefferer"
+        >
+          CharacterSheets
         </a>
       </div>
     </div>
