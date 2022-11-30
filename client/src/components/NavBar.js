@@ -1,7 +1,9 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import logo from "../logo.svg";
+
+import Home from "../pages/Home";
+import Dashboard from "../pages/Dashboard";
 
 function NavBar() {
   return (
@@ -10,35 +12,19 @@ function NavBar() {
       <div className="NavBar-Links">
         <a
           className="App-Links"
-          href="./components/Home.js"
-          target="_blank"
+          href={Home}
+          as={Link}
           rel="noopener noreferrer"
         >
           Home
         </a>
         <a
           className="App-Links"
-          href="./components/Dashboard.js"
-          target="_blank"
+          href={Dashboard}
+          as={Link}
           rel="noopener noreferrer"
         >
           Dashboard
-        </a>
-        <a
-          className="App-Links"
-          href="./components/CharacterCreation.js"
-          target="_blank"
-          rel="noopener norefferer"
-        >
-          CharacterCreation
-        </a>
-        <a
-          className="App-Links"
-          href="./components/CharacterSheets.js"
-          target="_blank"
-          rel="noopener norefferer"
-        >
-          CharacterSheets
         </a>
       </div>
     </div>
