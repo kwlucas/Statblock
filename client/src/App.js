@@ -1,12 +1,12 @@
 import "./scss/AllStyles.scss";
 
-import NavBar from "./components/NavBar";
+import PageLayout from "./components/PageLayout";
 
 function App() {
   return (
     <div className="App">
       <header>
-        <NavBar />
+        <PageLayout />
       </header>
     </div>
   );
