@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Character {
@@ -8,7 +8,6 @@ const typeDefs = gql`
     description: String
   }
 
-
   type User {
     _id: ID
     title: String
@@ -17,8 +16,8 @@ const typeDefs = gql`
   }
 
   type Auth {
-      token: ID!
-      user: User
+    token: ID!
+    user: User
   }
 
   input CharacterData {
@@ -47,7 +46,6 @@ const typeDefs = gql`
     removeCharacter(characterId: ID!): Character
   }
 `;
-
 
 // statset: [Statset]
 
@@ -121,8 +119,5 @@ const typeDefs = gql`
 //     priority: Int
 //   }]
 // }
-
-
-
 
 module.exports = typeDefs;

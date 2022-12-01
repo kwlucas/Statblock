@@ -1,48 +1,59 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
+// Importing Authorization
+import Auth from "../utils/auth";
+
+// Importing Navbar Logo
 import logo from "../logo.svg";
 
-function NavBar() {
+const NavBar = () => {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     <div className="NavBar">
-      <img src={logo} className="App-logo" alt="logo" as={Link} to="/" />
-      <div className="NavBar-Links">
-        <a
-          className="App-Links"
-          href="./components/Home.js"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+      <Link>
+        <img src={logo} className="App-logo" alt="logo" to="/" />
+      </Link>
+      <div className="App-links-section">
+        <Link className="App-links1" to="/">
           Home
-        </a>
-        <a
-          className="App-Links"
-          href="./components/Dashboard.js"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        </Link>
+        <Link className="App-links2" to="/dashboard">
           Dashboard
-        </a>
-        <a
-          className="App-Links"
-          href="./components/CharacterCreation.js"
-          target="_blank"
-          rel="noopener norefferer"
-        >
-          CharacterCreation
-        </a>
-        <a
-          className="App-Links"
-          href="./components/CharacterSheets.js"
-          target="_blank"
-          rel="noopener norefferer"
-        >
-          CharacterSheets
-        </a>
+        </Link>
+        <div>
+          {Auth.loggedIn() ? (
+            <>
+              <Link className="App-links3" to="/characterCreation">
+                Create Character
+              </Link>
+              <Link className="App-links4" to="/characterSheet">
+                Your Character
+              </Link>
+              <button className="App-links5" onClick={logout}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <div className="login-signup-section">
+                <Link className="App-links6" to="/login">
+                  Login
+                </Link>
+                <div className="divider">/</div>
+                <Link className="App-links7" to="/signup">
+                  Sign Up
+                </Link>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default NavBar;
