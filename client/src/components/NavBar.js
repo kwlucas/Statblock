@@ -17,35 +17,40 @@ const NavBar = () => {
       <Link>
         <img src={logo} className="App-logo" alt="logo" to="/" />
       </Link>
-      <Link className="App-links" to="/">
-        Home
-      </Link>
-      <div>
-        {Auth.loggedIn() ? (
-          <>
-            <Link className="App-links" to="/dashboard">
-              Dashboard
-            </Link>
-            <Link className="App-links" to="/characterCreation">
-              Create Character
-            </Link>
-            <Link className="App-links" to="/characterSheet">
-              Your Character
-            </Link>
-            <button className="App-links" onClick={logout}>
-              Logout
-            </button>
-          </>
-        ) : (
-          <>
-            <Link className="App-links" to="/login">
-              Login
-            </Link>
-            <Link className="App-links" to="/signup">
-              Sign Up
-            </Link>
-          </>
-        )}
+      <div className="App-links-section">
+        <Link className="App-links1" to="/">
+          Home
+        </Link>
+        <Link className="App-links2" to="/dashboard">
+          Dashboard
+        </Link>
+        <div>
+          {Auth.loggedIn() ? (
+            <>
+              <Link className="App-links3" to="/characterCreation">
+                Create Character
+              </Link>
+              <Link className="App-links4" to="/characterSheet">
+                Your Character
+              </Link>
+              <button className="App-links5" onClick={logout}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <div className="login-signup-section">
+                <Link className="App-links6" to="/login">
+                  Login
+                </Link>
+                <div className="divider">/</div>
+                <Link className="App-links7" to="/signup">
+                  Sign Up
+                </Link>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </div>
   );

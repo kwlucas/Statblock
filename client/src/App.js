@@ -51,17 +51,15 @@ function App() {
           <NavBar />
           <div className="container">
             <Routes>
-              <div className="">
-                <Route path="/" element={<Home />} />
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/login" element={<LoginForm />} />
-                <Route path="/signup" element={<SignUpForm />} />
-                <Route
-                  path="/characterCreation"
-                  element={<CharacterCreation />}
-                />
-                <Route path="/characterSheet" element={<CharacterSheet />} />
-              </div>
+              <Route path="/" element={<Home />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/login" element={<LoginForm />} />
+              <Route path="/signup" element={<SignUpForm />} />
+              <Route
+                path="/characterCreation"
+                element={<CharacterCreation />}
+              />
+              <Route path="/characterSheet" element={<CharacterSheet />} />
             </Routes>
           </div>
           <FooterNavBar />

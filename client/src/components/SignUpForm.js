@@ -6,19 +6,19 @@ function SignUpForm() {
         <section class="signup-container">
           <div class="form-title">Sign Up</div>
           <div class="input-section">
-            <label for="textUserName" class="label-input">
+            <label htmlFor="textUserName" class="label-input">
               User Name
             </label>
             <input type="text" id="textUserName" class="inputBox" />
           </div>
           <div class="input-section">
-            <label for="textEmail" class="label-input">
+            <label htmlFor="textEmail" class="label-input">
               Email
             </label>
             <input type="text" id="textEmail" class="inputBox" />
           </div>
           <div class="input-section">
-            <label for="textPassword" class="label-input">
+            <label htmlFor="textPassword" class="label-input">
               Password
             </label>
             <input type="text" id="textPassword" class="inputBox" />
@@ -30,7 +30,7 @@ function SignUpForm() {
           </div>
           <div class="login-section">
             Already have an account?{" "}
-            <a href="" class="login-link">
+            <a href="/login" class="login-link">
               Login
             </a>
           </div>
