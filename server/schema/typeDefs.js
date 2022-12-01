@@ -187,12 +187,14 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createCharacter(Character: CharacterData): Character
-    createStatset(type: String!): Statset
-    updateStatset(_id: ID!, Statset: StatsetData): Statset
     createUser(User: UserData): Auth
     login(email: String!, password: String!): Auth
+    createCharacter(Character: CharacterData): Character
+    updateCharacter(_id: ID!, Character: CharacterData): Character
+    createStatset(type: String!): Statset
+    updateStatset(_id: ID!, Statset: StatsetData): Statset
     removeCharacter(characterId: ID!): Character
+    removeStatset(statsetId: ID!): Statset
   }
 `;
 
