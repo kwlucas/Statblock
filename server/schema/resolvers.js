@@ -15,7 +15,7 @@ const resolvers = {
     },
 
     Mutation: {
-        addUser: async (parent, { username, email, password }) => {
+        createUser: async (parent, { username, email, password }) => {
             const user = await User.create({ username, email, password });
             const token = signToken(user);
 
@@ -39,7 +39,7 @@ const resolvers = {
         },
 
         // Add a third argument to the resolver to access data in our `context`
-        addCharacter: async (parent, characterObj, context) => {
+        createCharacter: async (parent, characterObj, context) => {
             if (context.user){
                 const character = await Character.create(characterObj);
                 await User.findOneAndUpdate(
