@@ -6,10 +6,6 @@ const typeDefs = gql`
     name: String
     race: String
     description: String
-    statset: [Statset]
-  }
-  type Statset {
-    _id: ID
   }
 
   type User {
@@ -18,6 +14,7 @@ const typeDefs = gql`
     userId: ID!
     votes: Int
   }
+
   type Auth {
     token: ID!
     user: User
@@ -28,23 +25,99 @@ const typeDefs = gql`
     name: String
     race: String
     description: String
-    statset: [Statset]
   }
-  input Statset {
+
+  input UserData {
     _id: ID
+    username: String
+    email: String
+    password: String
   }
 
   type Query {
-    users: [Users]
+    users: [User]
     user(id: ID!): User
-    statset(id: ID!): Statset
   }
 
   type Mutation {
-    createStatset(Character: CharacterData): characterResponse
-    createCharacter(user: UserData): userResponse
+    createCharacter(Character: CharacterData): Character
+    createUser(User: UserData): User
     login(email: String!, password: String!): Auth
+    removeCharacter(characterId: ID!): Character
   }
 `;
+
+// statset: [Statset]
+
+// statset: Statset
+
+// input Statset {
+//   _id: ID
+// }
+
+// statset(id: ID!): Statset
+
+// type Statset {
+//   _id: ID
+//   type: String
+//   class: String
+//   background: String
+//   level: Int
+//   status: String
+//   health: {
+//     hp: Int
+//     mhp: Int
+//   }
+//   ac: Int
+//   movement: {
+//     walking: Int
+//     flying: Int
+//     climbing: Int
+//     swimming: Int
+//     primary: String
+//   }
+//   abilities: {
+//     strength: Int
+//     dexterity: Int
+//     constitution: Int
+//     intelligence: Int
+//     wisdom: Int
+//     charisma: Int
+//   }
+//   skills: {
+//     acrobatics: String
+//     animalHandling: String
+//     arcana: String
+//     athletics: String
+//     deception: String
+//     history: String
+//     insight: String
+//     intimidation: String
+//     investigation: String
+//     medicine: String
+//     nature: String
+//     perception: String
+//     performance: String
+//     persuasion: String
+//     religion: String
+//     sleightOfHand: String
+//     stealth: String
+//     survival: String
+//   }
+//   spellSlots: [Int]
+//   traits: [
+//     {
+//       feature: String
+//       details: String
+//       priority: Int
+//     }
+//   ]
+//   inventory: [{
+//     item: String
+//     quantity: Int
+//     details: String
+//     priority: Int
+//   }]
+// }
 
 module.exports = typeDefs;
