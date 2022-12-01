@@ -1,21 +1,17 @@
-// Import components
-import CharacterCard from "../components/CharacterCard";
-
-// import pages
-import CharacterCreation from "./CharacterCreation";
-
 import { Link } from "react-router-dom";
 
 function CharacterSheet() {
   return (
     <div className="character-sheet-section">
-      <div className="character-sheet-section">
-        {/* add logic for last character here */}
-        <CharacterCard />
-        Current Character
-      </div>
-      <Link to={CharacterCreation}></Link>
-      <Link to={CharacterSheet}>CharacterSheet</Link>
+      <h1>{"Input Character Name"}</h1>
+      <ul>
+        <li>Name: {"Name"}</li>
+        <li>Race: {"Race"}</li>
+        <li>Description: {"Description"}</li>
+        <li>Stats: {}</li>
+        <li></li>
+        <li></li>
+      </ul>
     </div>
   );
 }

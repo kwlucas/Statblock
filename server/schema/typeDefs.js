@@ -1,16 +1,15 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-    type Character {
+  type Character {
     _id: ID
     name: String
     race: String
     description: String
     statset: [Statset]
-    }
-    type Statset {
+  }
+  type Statset {
     _id: ID
-    
   }
 
   type User {
@@ -20,8 +19,8 @@ const typeDefs = gql`
     votes: Int
   }
   type Auth {
-      token: ID!
-      user: User
+    token: ID!
+    user: User
   }
 
   input CharacterData {
@@ -32,17 +31,13 @@ const typeDefs = gql`
     statset: [Statset]
   }
   input Statset {
-      _id: ID
-
+    _id: ID
   }
 
-
   type Query {
-    
     users: [Users]
     user(id: ID!): User
     statset(id: ID!): Statset
-
   }
 
   type Mutation {
@@ -51,9 +46,5 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
   }
 `;
-
-
-
-
 
 module.exports = typeDefs;
