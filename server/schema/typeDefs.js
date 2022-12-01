@@ -110,7 +110,10 @@ const typeDefs = gql`
 
   type Query {
     users: [User]
-    user(id: ID!): User
+    user(_id: ID!): User
+    characters(user: ID): [Character]
+    character(_id: ID!): Character
+    statset(_id: ID!): Statset
   }
 
   type Mutation {
@@ -128,8 +131,6 @@ const typeDefs = gql`
 // input Statset {
 //   _id: ID
 // }
-
-// statset(id: ID!): Statset
 
 
 
