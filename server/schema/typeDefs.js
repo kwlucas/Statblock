@@ -95,17 +95,87 @@ const typeDefs = gql`
   }
 
   input CharacterData {
-    _id: ID
-    name: String
+    name: String!
     race: String
     description: String
   }
 
   input UserData {
-    _id: ID
-    username: String
-    email: String
-    password: String
+    username: String!
+    email: String!
+    password: String!
+  }
+
+  input StatsetData {
+    type: String
+    class: String
+    background: String
+    level: Int
+    status: String
+    health: healthObjData
+    ac: Int
+    movement: movementObjData
+    abilities: abilityObjData
+    skills: skillObjData
+    spellSlots: [Int]
+    traits: [traitObjData]
+    inventory: [itemObjData]
+  }
+
+  input healthObjData {
+    hp: Int
+    mhp: Int
+  }
+
+  input movementObjData {
+    walking: Int
+    flying: Int
+    climbing: Int
+    swimming: Int
+    primary: String
+  }
+
+  input abilityObjData {
+    strength: Int
+    dexterity: Int
+    constitution: Int
+    intelligence: Int
+    wisdom: Int
+    charisma: Int
+  }
+
+  input skillObjData {
+    acrobatics: String
+    animalHandling: String
+    arcana: String
+    athletics: String
+    deception: String
+    history: String
+    insight: String
+    intimidation: String
+    investigation: String
+    medicine: String
+    nature: String
+    perception: String
+    performance: String
+    persuasion: String
+    religion: String
+    sleightOfHand: String
+    stealth: String
+    survival: String
+  }
+
+  input traitObjData {
+    feature: String
+    details: String
+    priority: Int
+  }
+
+  input itemObjData {
+    item: String
+    quantity: Int
+    details: String
+    priority: Int
   }
 
   type Query {
@@ -118,19 +188,13 @@ const typeDefs = gql`
 
   type Mutation {
     createCharacter(Character: CharacterData): Character
-    createUser(User: UserData): User
+    createStatset(type: String!): Statset
+    updateStatset(_id: ID!, Statset: StatsetData): Statset
+    createUser(User: UserData): Auth
     login(email: String!, password: String!): Auth
     removeCharacter(characterId: ID!): Character
   }
 `;
-
-// statset: [Statset]
-
-
-
-// input Statset {
-//   _id: ID
-// }
 
 
 
