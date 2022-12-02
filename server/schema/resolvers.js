@@ -64,8 +64,15 @@ const resolvers = {
             // If user attempts to execute this mutation and isn't logged in, throw an error
             throw new AuthenticationError('You need to be logged in!');
         },
+        updateCharacter: async (parent, { characterId, characterObj }, context) => {
+            if (context.user) {
+                const character = await Character.findOneAndUpdate({ _id: characterId, owner: context.user.id }, characterObj);
+                return character;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
         // Make it so a logged in user can only remove a character they own
-        removeCharacter: async (parent, { character }, context) => {
+        removeCharacter: async (parent, { characterId }, context) => {
             if (context.user) {
                 //Find and delete character where owned by user
             }
