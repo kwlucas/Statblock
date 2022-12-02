@@ -13,6 +13,7 @@ const typeDefs = gql`
   type Statset {
     _id: ID
     type: String
+    attachedTo: Character!
     class: String
     background: String
     level: Int
@@ -192,7 +193,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     createCharacter(Character: CharacterData): Character
     updateCharacter(_id: ID!, Character: CharacterData): Character
-    createStatset(type: String!): Statset
+    createStatset(attachedTo: ID!): Statset
     updateStatset(_id: ID!, Statset: StatsetData): Statset
     removeCharacter(characterId: ID!): Character
     removeStatset(statsetId: ID!): Statset
