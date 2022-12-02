@@ -193,7 +193,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     createCharacter(Character: CharacterData): Character
     updateCharacter(_id: ID!, Character: CharacterData): Character
-    createStatset(attachedTo: ID!): Statset
+    createStatset(attachedTo: ID!, Statset: StatsetData): Statset
     updateStatset(_id: ID!, Statset: StatsetData): Statset
     removeCharacter(characterId: ID!): Character
     removeStatset(statsetId: ID!): Statset

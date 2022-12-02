@@ -64,6 +64,18 @@ const resolvers = {
             // If user attempts to execute this mutation and isn't logged in, throw an error
             throw new AuthenticationError('You need to be logged in!');
         },
+        createStatset: async (parent, { attachedTo, statsetObj }, context) => {
+            if (context.user){
+                const newStatset = await Statset.create({attachedTo, ... statsetObj});
+                await Character.findOneAndUpdate(
+                    { _id: attachedTo },
+                    { statset: newStatset._id }
+                );
+                return newStatset
+            }
+            // If user attempts to execute this mutation and isn't logged in, throw an error
+            throw new AuthenticationError('You need to be logged in!');
+        },
         updateCharacter: async (parent, { characterId, characterObj }, context) => {
             if (context.user) {
                 const character = await Character.findOneAndUpdate({ _id: characterId, owner: context.user.id }, characterObj);
