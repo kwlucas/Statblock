@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_USER = gql`
-  query getUser {
-    users {
+  query getUser($user: ID) {
+    users(_id: $user) {
       _id
       username
       email
@@ -12,29 +12,27 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_CHARCTERS = gql`
-query getCharacters{
-    user {
-        
-    }
+query getCharacters($user: ID){
+    characters(owner:$user)
 }`
 
 export const QUERY_CHARACTER = gql`
-query getCharacter {
-    character{
+query getCharacter($characterID: ID) {
+    character(_id:$characterID){
         _id
         name
         owner
         race
         description
-        
+        statset
     }
 }`
 
 
 
 export const QUERY_STATSET = gql`
-query getStatset{
-    statset {
+query getStatset($character: ID){
+    statset(attachedTo: $character) {
         _id
         type 
         attachedTo
