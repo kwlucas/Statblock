@@ -6,6 +6,11 @@ const statsetSchema = new Schema({
         required: true,
         default: 'dnd5e',
     },
+    attachedTo: {
+        type: Schema.Types.ObjectId,
+        ref: 'Character',
+        required: true,
+    },
     class: {
         type: String,
     },
