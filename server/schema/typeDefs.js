@@ -48,7 +48,7 @@ const typeDefs = gql`
     charisma: Int
   }
 
-  type skillObj: {
+  type skillObj {
     acrobatics: String
     animalHandling: String
     arcana: String
