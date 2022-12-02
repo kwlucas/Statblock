@@ -75,6 +75,8 @@ const resolvers = {
         removeCharacter: async (parent, { characterId }, context) => {
             if (context.user) {
                 //Find and delete character where owned by user
+                const character = await Character.findOneAndDelete({ _id: characterId, owner: context.user.id });
+                return character;
             }
             throw new AuthenticationError('You need to be logged in!');
         },
