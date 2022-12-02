@@ -15,7 +15,7 @@ const initialFormState = {
 }};
 
 function CharacterCreate() {
-    const [formState, dispatch] = useReducer(formReducer, initialFormState);
+    const [formState, dispatch] = useReducer(charReducer, initialFormState);
 
     const handleInputChange = (e) => {
         dispatch({
