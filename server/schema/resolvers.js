@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Character } = require('../models');
+const { User, Character, Statset } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -9,6 +9,19 @@ const resolvers = {
         },
         user: async (parent, { userId }) => {
             return await User.findById(userId);
+        },
+        characters: async (parent, { userId }) => {
+            const characters = await Character.find({ owner: userId });
+
+            return characters;
+        },
+        character: async (parent, { characterId }, context) => {
+            if(context.user){
+                const character = await Character.find({_id: characterId, owner: context.user.id }).populate('stats')
+            }
+        },
+        statset: async (parent, { statsetId }) => {
+            return await Statset.findById(statsetId);
         },
 
 
