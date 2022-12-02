@@ -5,8 +5,7 @@ const charReducer = (state, action)=>{
                 ...state,
                 [action.field]: action.payload,
             };
-        case "Handle Race":
-            return 
+        case "Handle Race": 
             switch (action.type) {
                 case "Dragonborn":
                     return {
