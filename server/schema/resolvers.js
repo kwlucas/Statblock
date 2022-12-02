@@ -83,6 +83,13 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
+        updateStatset: async (parent, { statsetId, statsetObj }, context) => {
+            if (context.user) {
+                const statset = await Statset.findOneAndUpdate({ _id: statsetId }, statsetObj);
+                return statset;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
         // Make it so a logged in user can only remove a character they own
         removeCharacter: async (parent, { characterId }, context) => {
             if (context.user) {
