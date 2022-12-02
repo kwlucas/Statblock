@@ -99,6 +99,13 @@ const resolvers = {
             }
             throw new AuthenticationError('You need to be logged in!');
         },
+        removeStatset: async (parent, { statsetId }, context) => {
+            if (context.user) {
+                const statset = await Statset.findOneAndDelete({ _id: statsetId });
+                return statset;
+            }
+            throw new AuthenticationError('You need to be logged in!');
+        },
     },
 };
 
