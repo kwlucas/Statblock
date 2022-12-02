@@ -1,14 +1,96 @@
 #login-form{
     width: 100%;
+    background-color: white;
+    padding: 2rem;
     display: flex;
     justify-content: center;
+    box-shadow: 20px 20px 50px rgb(7, 7, 7);
 
     .login-container{
-        background-color: white;
-        padding: 2rem;
-        max-width: 75%;
-        margin: 2rem;
         display: block;
-    }
+        max-width: 100%;
+        
+        .form-title {
+            font-family: 'Hind', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: orange;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
 
+        .input-section {
+            display: block;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            max-width: 100%;
+
+            #label-input {
+                font-size: 1rem;
+                font-family: 'Hind', sans-serif;
+                color: grey;
+                font-weight: 400;
+                height: 100%;
+            }
+
+            .inputBox {
+                display: block;
+                width: 180px;
+                border: none;
+                background-color: rgb(231, 231, 231);
+                height: 2.5rem;
+
+            }
+        }
+
+        .button-section {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0 1rem 0;
+            width: 100%;
+
+            .btn {
+                border: none;
+                padding: 1rem;
+                background-color: orange;
+                font-family: 'Hind', sans-serif;
+                display: flex;
+                justify-content: center;
+                color: white;
+                cursor: pointer;
+                width: 100%;
+            }
+
+            .btn:hover {
+                transition: .5s;
+                color: orange;
+                background-color: white;
+                border: solid;
+                border-color: orange;
+                font-weight: 400;
+            }
+        }
+
+        .sign-up-section {
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+            font-family: 'Hind', sans-serif;
+            color: grey;
+            width: 100%;
+            font-size: .75rem;
+
+            .sign-up-link {
+                margin-left: .2rem;
+                text-decoration: none;
+                color: orange;
+                &:hover {
+                    color: grey;
+                    transition: .5s;
+                }
+            }
+
+        }
+    }
 }

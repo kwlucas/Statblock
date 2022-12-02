@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: space-between;
     max-width: 100%;
-    margin: 3rem;
+    margin: 0 3rem 2rem 3rem;
     font-family: 'Hind', sans-serif;
     font-weight: 600;
 
@@ -17,18 +17,16 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
-       
-
+    
         .App-links1, .App-links2{
             text-decoration: none;
             color: white;
             margin-left: 2rem;
+            &:hover {
+                color: orange;
+                transition: .5s;
+            }
         } 
-
-        .App-links1, .App-links2:hover {
-            color: orange;
-            transition: .5s;
-        }
 
         .App-links3, .App-links4, .App-links5 {
             text-decoration: none;
@@ -44,6 +42,10 @@
                 text-decoration: none;
                 color: white;
                 margin-left: 2rem;
+                &:hover {
+                    color: orange;
+                    transition: .5s;
+                }
             }
     
             .divider {
@@ -56,9 +58,8 @@
                 color: white;
             }
         }
-        
-        }
     }
+}
 
 
 
