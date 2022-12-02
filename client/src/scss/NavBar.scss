@@ -1,30 +1,65 @@
 .NavBar{
     display: flex;
     align-items: center;
-    max-width: 100%;
     justify-content: space-between;
-    margin: 2rem;
+    max-width: 100%;
+    margin: 3rem;
+    font-family: 'Hind', sans-serif;
+    font-weight: 600;
 
     .App-logo {
         width: 9rem;
-      }
-
-    .NavBar-Links{
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
+      }
+ 
+    .App-links-section {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+       
 
-        .App-Links {
-            display: flex;
-            justify-content: flex-end;
+        .App-links1, .App-links2{
             text-decoration: none;
             color: white;
             margin-left: 2rem;
+        } 
+
+        .App-links1, .App-links2:hover {
+            color: orange;
+            transition: .5s;
+        }
+
+        .App-links3, .App-links4, .App-links5 {
+            text-decoration: none;
+            color: white;
+            margin-left: 2rem;
+        }
+
+        .login-signup-section{
+            display: flex;
+            align-items: center;
+
+            .App-links6 {
+                text-decoration: none;
+                color: white;
+                margin-left: 2rem;
             }
+    
+            .divider {
+                margin: .5rem;
+                color: white;
+            }
+    
+            .App-links7 {
+                text-decoration: none;
+                color: white;
+            }
+        }
+        
+        }
     }
 
-
-
-}
 
 
   
