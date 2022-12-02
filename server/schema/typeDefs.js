@@ -4,6 +4,7 @@ const typeDefs = gql`
   type Character {
     _id: ID
     name: String
+    owner: User!
     race: String
     description: String
     statset: Statset
@@ -84,9 +85,9 @@ const typeDefs = gql`
 
   type User {
     _id: ID
-    title: String
-    userId: ID!
-    votes: Int
+    username: String!
+    email: String!
+    password: String!
   }
 
   type Auth {
