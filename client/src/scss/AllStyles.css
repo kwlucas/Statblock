@@ -1,25 +1,160 @@
 body {
   background-color: #282c34;
 }
+body .app-container {
+  height: 100vh;
+  margin: 3rem;
+}
 
 .NavBar {
   display: flex;
   align-items: center;
-  max-width: 100%;
   justify-content: space-between;
-  margin: 2rem;
+  max-width: 100%;
+  margin: 0 3rem 2rem 3rem;
+  font-family: "Hind", sans-serif;
+  font-weight: 600;
 }
 .NavBar .App-logo {
   width: 9rem;
-}
-.NavBar .NavBar-Links {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
-.NavBar .NavBar-Links .App-Links {
+.NavBar .App-links-section {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+}
+.NavBar .App-links-section .App-links1, .NavBar .App-links-section .App-links2, .NavBar .App-links-section .App-links3 {
   text-decoration: none;
   color: white;
   margin-left: 2rem;
+}
+.NavBar .App-links-section .App-links1:hover, .NavBar .App-links-section .App-links2:hover, .NavBar .App-links-section .App-links3:hover {
+  color: orange;
+  transition: 0.5s;
+}
+.NavBar .App-links-section .App-links4, .NavBar .App-links-section .App-links5, .NavBar .App-links-section .App-links6 {
+  text-decoration: none;
+  color: white;
+  margin-left: 2rem;
+}
+.NavBar .App-links-section .login-signup-section {
+  display: flex;
+  align-items: center;
+}
+.NavBar .App-links-section .login-signup-section .App-links7 {
+  text-decoration: none;
+  color: white;
+  margin-left: 2rem;
+}
+.NavBar .App-links-section .login-signup-section .App-links7:hover {
+  color: orange;
+  transition: 0.5s;
+}
+.NavBar .App-links-section .login-signup-section .divider {
+  margin: 0.5rem;
+  color: white;
+}
+.NavBar .App-links-section .login-signup-section .App-links8 {
+  text-decoration: none;
+  color: white;
+}
+
+#login-form {
+  width: 100%;
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  box-shadow: 20px 20px 50px rgb(7, 7, 7);
+}
+#login-form .login-container {
+  display: block;
+  max-width: 100%;
+}
+#login-form .login-container .form-title {
+  font-family: "Hind", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: orange;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+#login-form .login-container .input-section {
+  display: block;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  max-width: 100%;
+}
+#login-form .login-container .input-section #label-input {
+  font-size: 1rem;
+  font-family: "Hind", sans-serif;
+  color: grey;
+  font-weight: 400;
+  height: 100%;
+}
+#login-form .login-container .input-section .inputBox {
+  display: block;
+  width: 180px;
+  border: none;
+  background-color: rgb(231, 231, 231);
+  height: 2.5rem;
+}
+#login-form .login-container .button-section {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0 1rem 0;
+  width: 100%;
+}
+#login-form .login-container .button-section .btn {
+  border: none;
+  padding: 1rem;
+  background-color: orange;
+  font-family: "Hind", sans-serif;
+  display: flex;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+}
+#login-form .login-container .button-section .btn:hover {
+  transition: 0.5s;
+  color: orange;
+  background-color: white;
+  border: solid;
+  border-color: orange;
+  font-weight: 400;
+}
+#login-form .login-container .sign-up-section {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  font-family: "Hind", sans-serif;
+  color: grey;
+  width: 100%;
+  font-size: 0.75rem;
+}
+#login-form .login-container .sign-up-section .sign-up-link {
+  margin-left: 0.2rem;
+  text-decoration: none;
+  color: orange;
+}
+#login-form .login-container .sign-up-section .sign-up-link:hover {
+  color: grey;
+  transition: 0.5s;
+}
+
+#signup-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#signup-form .signup-container {
+  background-color: white;
+  padding: 2rem;
+  max-width: 75%;
+  margin: 2rem;
+  display: block;
 }/*# sourceMappingURL=AllStyles.css.map */

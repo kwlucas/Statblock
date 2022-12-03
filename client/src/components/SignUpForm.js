@@ -1,7 +1,7 @@
 function SignUpForm() {
   const loggedIn = true;
   return (
-    <dialog id="login-modal" open={loggedIn ? true : false}>
+    <dialog id="signup-modal" open={loggedIn ? true : false}>
       <form id="signup-form">
         <section class="signup-container">
           <div class="form-title">Sign Up</div>

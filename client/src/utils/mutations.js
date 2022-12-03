@@ -31,3 +31,9 @@ export const CREATE_CHARACTER = gql`
     }
   }
 `;
+
+export const REMOVE_CHARACTER = gql`
+  mutation removeCharacter($character: character) {
+    
+  }
+`;
