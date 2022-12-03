@@ -31,3 +31,54 @@ export const CREATE_CHARACTER = gql`
     }
   }
 `;
+
+export const CREATE_STATSET = gql`
+mutation createStatset($attachedTo: ID!){
+  createStatset(attachedTo: $attachedTo)
+}`
+
+export const REMOVE_STATSET = gql`
+mutation removeStatset($arrachedTo: ID!){
+  removeStatset(attachedTo: $attachedTO)
+}`
+
+export const REMOVE_CHARACTER = gql`
+mutation removeCharacter(characterId: $characterId){
+  _id
+  description
+  owner{
+    _id
+  }
+  race
+  statset{
+    _id
+    type
+    attachedTo{
+
+    }
+    class
+    background
+    level
+    status
+    health{
+
+    }
+    ac
+    movement{
+
+    }
+    abilities{
+
+    }
+    skills{
+
+    }
+    spellSlots
+    traits{
+
+    }
+    inventory {
+
+    }
+  }
+}`
