@@ -23,6 +23,8 @@ import Dashboard from "./pages/Dashboard";
 import CharacterCreation from "./pages/CharacterCreation";
 import CharacterSheet from "./pages/CharacterSheet";
 
+import background from "./img/background.svg";
+
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -63,6 +65,7 @@ function App() {
             </Routes>
           </div>
           <FooterNavBar />
+          <div style={{ backgroundImage: `url(${background})` }}></div>
         </div>
       </Router>
     </ApolloProvider>

@@ -18,17 +18,17 @@
         justify-content: flex-end;
         align-items: center;
     
-        .App-links1, .App-links2{
+        .App-links1, .App-links2, .App-links3{
             text-decoration: none;
             color: white;
             margin-left: 2rem;
             &:hover {
-                color: orange;
+                color: #f04e24;
                 transition: .5s;
             }
         } 
 
-        .App-links3, .App-links4, .App-links5 {
+        .App-links4, .App-links5, .App-links6 {
             text-decoration: none;
             color: white;
             margin-left: 2rem;
@@ -38,12 +38,12 @@
             display: flex;
             align-items: center;
 
-            .App-links6 {
+            .App-links7 {
                 text-decoration: none;
                 color: white;
                 margin-left: 2rem;
                 &:hover {
-                    color: orange;
+                    color: f04e24;
                     transition: .5s;
                 }
             }
@@ -53,9 +53,13 @@
                 color: white;
             }
     
-            .App-links7 {
+            .App-links8 {
                 text-decoration: none;
                 color: white;
+                &:hover {
+                    color: f04e24;
+                    transition: .5s;
+                }
             }
         }
     }
