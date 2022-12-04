@@ -102,12 +102,6 @@ const typeDefs = gql`
     description: String
   }
 
-  input UserData {
-    username: String!
-    email: String!
-    password: String!
-  }
-
   input StatsetData {
     type: String
     class: String
