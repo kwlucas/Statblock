@@ -11,7 +11,7 @@ function LoginForm() {
   const [validated, setValidation] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  const [loginUser] = useMutation(LOGIN_USER);
+  const [loginUser, { error }] = useMutation(LOGIN_USER);
 
 
 
@@ -22,22 +22,29 @@ function LoginForm() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log("Form submitted")
 
-    const form = event.currentTarget;
-    if (!form.checkValidity()) {
-      event.stopPropagation();
-    }
+    // const form = event.currentTarget;
+    // if (!form.checkValidity()) {
+    //   event.stopPropagation();
+    // }
 
     try {
-      const { data } = await loginUser({
-        variables: { ...userFormData },
+      console.log("Enter try")
+      const res = await loginUser({
+        variables: { email: userFormData.email, password: userFormData.password },
       });
+
+      console.log(`Data: ${res}`)
+
+      const data = res.data;
 
       const { token } = data.login;
 
-      // console.log(user);
+      console.log(token);
       Auth.login(token);
     } catch (err) {
+      console.log("Enter Catch")
       console.error(err);
       setShowAlert(true);
     }
