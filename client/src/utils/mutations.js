@@ -1,31 +1,19 @@
 import { gql } from "@apollo/client";
 
 export const CREATE_USER = gql`
-  mutation CreateUser($user: UserData) {
-    createUser(User: $user) {
-      token
-      user {
-        _id
-        username
-        email
-        password
-      }
-    }
+mutation Mutation($username: String!, $email: String!, $password: String!) {
+  createUser(username: $username, email: $email, password: $password) {
+    token
   }
+}
 `;
 
 export const LOGIN_USER = gql`
-  mutation Login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
-      user {
-        _id
-        username
-        email
-        password
-      }
-    }
+mutation Login($email: String!, $password: String!) {
+  login(email: $email, password: $password) {
+    token
   }
+}
 `;
 
 export const CREATE_CHARACTER = gql`
@@ -47,14 +35,8 @@ mutation CreateCharacter($character: CharacterData) {
       attachedTo {
         _id
         name
-        owner {
-          
-        }
         race
         description
-        statset {
-          
-        }
       }
       class
       background
@@ -273,21 +255,12 @@ export const REMOVE_STATSET = gql`
     mutation RemoveStatset($statsetId: ID!) {
       removeStatset(statsetId: $statsetId) {
         _id
-        abilities {
-          
-        }
         ac
         attachedTo {
           _id
           name
-          owner {
-            
-          }
           race
           description
-          statset {
-            
-          }
         }
         background
         class
@@ -354,9 +327,6 @@ mutation RemoveCharacter($characterId: ID!) {
       password
     }
     race
-    statset {
-      
-    }
   }
 }`;
 
@@ -514,6 +484,7 @@ export const UPDATE_CHARACTER = gql`
     }
   }
 `;
+
 export const UPDATE_STATSET = gql`
  mutation UpdateStatset($id: ID!, $statset: StatsetData) {
   updateStatset(_id: $id, Statset: $statset) {
@@ -530,14 +501,8 @@ export const UPDATE_STATSET = gql`
     attachedTo {
       _id
       name
-      owner {
-        
-      }
       race
       description
-      statset {
-        
-      }
     }
     background
     class
