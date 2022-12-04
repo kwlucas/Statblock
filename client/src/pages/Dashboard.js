@@ -12,11 +12,11 @@ function Dashboard() {
     <div className="dashboard-section">
       <div className="character-card-section">
         {/* add logic for last character here */}
-        <CharacterCard />
+        <CharacterSheet />
         Current Character
       </div>
       <Link to={CharacterCreation}></Link>
-      <Link to={CharacterSheet}>CharacterSheet</Link>
+      {/* <Link to={CharacterSheet}>CharacterSheet</Link> */}
     </div>
   );
 }
