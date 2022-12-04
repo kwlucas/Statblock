@@ -3,34 +3,34 @@ function SignUpForm() {
   return (
     <dialog id="signup-modal" open={loggedIn ? true : false}>
       <form id="signup-form">
-        <section class="signup-container">
-          <div class="form-title">Sign Up</div>
-          <div class="input-section">
-            <label htmlFor="textUserName" class="label-input">
+        <section className="signup-container">
+          <div className="form-title">Sign Up</div>
+          <div className="input-section">
+            <label htmlFor="textUserName" className="label-input">
               User Name
             </label>
-            <input type="text" id="textUserName" class="inputBox" />
+            <input type="text" id="textUserName" className="inputBox" />
           </div>
-          <div class="input-section">
-            <label htmlFor="textEmail" class="label-input">
+          <div className="input-section">
+            <label htmlFor="textEmail" className="label-input">
               Email
             </label>
-            <input type="text" id="textEmail" class="inputBox" />
+            <input type="text" id="textEmail" className="inputBox" />
           </div>
-          <div class="input-section">
-            <label htmlFor="textPassword" class="label-input">
+          <div className="input-section">
+            <label htmlFor="textPassword" className="label-input">
               Password
             </label>
-            <input type="text" id="textPassword" class="inputBox" />
+            <input type="text" id="textPassword" className="inputBox" />
           </div>
-          <div class="button-section">
-            <button class="btn" type="submit">
+          <div className="button-section">
+            <button className="btn" type="submit">
               Submit
             </button>
           </div>
-          <div class="login-section">
+          <div className="login-section">
             Already have an account?{" "}
-            <a href="/login" class="login-link">
+            <a href="/login" className="login-link">
               Login
             </a>
           </div>
