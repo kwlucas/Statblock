@@ -1,11 +1,14 @@
 .footer-section {
-    width: 5%;
-    margin-top: 30%;
+    height: fit-content;
+    position: fixed;
+    z-index: 201;
+    left: 3rem;
+    bottom: 0;
 
     .footer-ul{
-        display: block;
-        justify-content: center;
-        flex-direction: column flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
 
         .dnd-logo{
             width: 1.4rem;

@@ -3,29 +3,29 @@ function LoginForm() {
   return (
     <dialog id="login-modal" open={loggedIn ? true : false}>
       <form id="login-form">
-        <section class="login-container">
-          <div class="form-title">Login</div>
-          <div class="input-section">
-            <label for="textEmail" id="label-input">
+        <section className="login-container">
+          <div className="form-title">Login</div>
+          <div className="input-section">
+            <label htmlFor="textEmail" id="label-input">
               Email
             </label>
-            <input type="text" id="textEmail" class="inputBox" />
+            <input type="text" id="textEmail" className="inputBox" />
           </div>
-          <div class="input-section">
-            <label for="textPassword" id="label-input">
+          <div className="input-section">
+            <label htmlFor="textPassword" id="label-input">
               Password
             </label>
-            <input type="text" id="textPassword" class="inputBox" />
+            <input type="text" id="textPassword" className="inputBox" />
           </div>
-          <div class="button-section">
-            <button class="btn" type="submit">
+          <div className="button-section">
+            <button className="btn" type="submit">
               Submit
             </button>
           </div>
 
-          <div class="sign-up-section">
+          <div className="sign-up-section">
             Don't have an account yet,
-            <a href="/" class="sign-up-link">
+            <a href="/" className="sign-up-link">
               {" "}
               Sign Up
             </a>
