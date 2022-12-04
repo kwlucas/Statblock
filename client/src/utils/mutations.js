@@ -41,14 +41,8 @@ mutation CreateCharacter($character: CharacterData) {
       attachedTo {
         _id
         name
-        owner {
-          
-        }
         race
         description
-        statset {
-          
-        }
       }
       class
       background
@@ -268,21 +262,12 @@ export const REMOVE_STATSET = gql`
     mutation RemoveStatset($statsetId: ID!) {
       removeStatset(statsetId: $statsetId) {
         _id
-        abilities {
-          
-        }
         ac
         attachedTo {
           _id
           name
-          owner {
-            
-          }
           race
           description
-          statset {
-            
-          }
         }
         background
         class
@@ -349,9 +334,6 @@ mutation RemoveCharacter($characterId: ID!) {
       password
     }
     race
-    statset {
-      
-    }
   }
 }`;
 
@@ -509,6 +491,7 @@ export const UPDATE_CHARACTER = gql`
     }
   }
 `;
+
 export const UPDATE_STATSET = gql`
  mutation UpdateStatset($id: ID!, $statset: StatsetData) {
   updateStatset(_id: $id, Statset: $statset) {
@@ -525,14 +508,8 @@ export const UPDATE_STATSET = gql`
     attachedTo {
       _id
       name
-      owner {
-        
-      }
       race
       description
-      statset {
-        
-      }
     }
     background
     class
