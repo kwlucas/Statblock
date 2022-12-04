@@ -7,15 +7,17 @@ import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 
 function LoginForm() {
-  const [userFromData, setUserFormData] = useState({ email: "", password: "" });
+  const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated, setValidation] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
   const [loginUser] = useMutation(LOGIN_USER);
 
+
+
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData({ ...userFromData, [name]: value });
+    const { type, value } = event.target;
+    setUserFormData({ ...userFormData, [type]: value });
   };
 
   const handleFormSubmit = async (event) => {
@@ -28,12 +30,12 @@ function LoginForm() {
 
     try {
       const { data } = await loginUser({
-        variables: { ...userFromData },
+        variables: { ...userFormData },
       });
 
-      const { token, user } = data.login;
+      const { token } = data.login;
 
-      console.log(user);
+      // console.log(user);
       Auth.login(token);
     } catch (err) {
       console.error(err);
@@ -56,7 +58,7 @@ function LoginForm() {
       >
         <div
           className="alert"
-          dismissible
+          dismissible="true"
           onClose={() => setShowAlert(false)}
           show={showAlert.toString()}
           variant="danger"
@@ -70,11 +72,11 @@ function LoginForm() {
               Email
             </label>
             <input
-              type="text"
+              type="email"
               id="textEmail"
               className="inputBox"
               onChange={handleInputChange}
-              value={userFromData.email}
+              value={userFormData.email}
               required
             />
           </div>
@@ -87,13 +89,13 @@ function LoginForm() {
               id="textPassword"
               className="inputBox"
               onChange={handleInputChange}
-              value={userFromData.password}
+              value={userFormData.password}
               required
             />
           </div>
           <div className="button-section">
             <button
-              disabled={!(userFromData.email && userFromData.password)}
+              disabled={!(userFormData.email && userFormData.password)}
               className="btn"
               type="submit"
               variant="success"
