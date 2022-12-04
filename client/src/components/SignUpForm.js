@@ -56,18 +56,17 @@ function SignUpForm() {
 
   return (
     <>
-      <dialog id="signup-modal" open={loggedIn ? true : false}>
+      <dialog id="signup-modal" open={loggedIn}>
         <form
-          noValidate
-          validated={validated}
+          validation={validated ? 'valid' : 'invalid'}
           onSubmit={handleFormSubmit}
           id="signup-form"
         >
           <div
             className="alert"
-            dismissible
+            dismissible='true'
             onClose={() => setShowAlert(false)}
-            show={showAlert}
+            show={showAlert.toString()}
             variant="danger"
           >
             Something went wrong with your login credentials!

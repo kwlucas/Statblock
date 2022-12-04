@@ -50,7 +50,7 @@ function LoginForm() {
   return (
     <dialog id="login-modal" open={loggedIn ? true : false}>
       <form
-        validation={validated ? 'valid' : 'invalid'}
+        validation={validated.toString()}
         onSubmit={handleFormSubmit}
         id="login-form"
       >
@@ -58,7 +58,7 @@ function LoginForm() {
           className="alert"
           dismissible
           onClose={() => setShowAlert(false)}
-          show={showAlert}
+          show={showAlert.toString()}
           variant="danger"
         >
           Something went wrong with your login credentials!
