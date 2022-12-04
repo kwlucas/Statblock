@@ -7,35 +7,44 @@ import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 
 function LoginForm() {
-  const [userFromData, setUserFormData] = useState({ email: "", password: "" });
+  const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [validated, setValidation] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  const [loginUser] = useMutation(LOGIN_USER);
+  const [loginUser, { error }] = useMutation(LOGIN_USER);
+
+
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserFormData({ ...userFromData, [name]: value });
+    const { type, value } = event.target;
+    setUserFormData({ ...userFormData, [type]: value });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log("Form submitted")
 
-    const form = event.currentTarget;
-    if (!form.checkValidity()) {
-      event.stopPropagation();
-    }
+    // const form = event.currentTarget;
+    // if (!form.checkValidity()) {
+    //   event.stopPropagation();
+    // }
 
     try {
-      const { data } = await loginUser({
-        variables: { ...userFromData },
+      console.log("Enter try")
+      const res = await loginUser({
+        variables: { email: userFormData.email, password: userFormData.password },
       });
 
-      const { token, user } = data.login;
+      console.log(`Data: ${res}`)
 
-      console.log(user);
+      const data = res.data;
+
+      const { token } = data.login;
+
+      console.log(token);
       Auth.login(token);
     } catch (err) {
+      console.log("Enter Catch")
       console.error(err);
       setShowAlert(true);
     }
@@ -56,7 +65,7 @@ function LoginForm() {
       >
         <div
           className="alert"
-          dismissible
+          dismissible="true"
           onClose={() => setShowAlert(false)}
           show={showAlert.toString()}
           variant="danger"
@@ -70,11 +79,11 @@ function LoginForm() {
               Email
             </label>
             <input
-              type="text"
+              type="email"
               id="textEmail"
               className="inputBox"
               onChange={handleInputChange}
-              value={userFromData.email}
+              value={userFormData.email}
               required
             />
           </div>
@@ -87,13 +96,13 @@ function LoginForm() {
               id="textPassword"
               className="inputBox"
               onChange={handleInputChange}
-              value={userFromData.password}
+              value={userFormData.password}
               required
             />
           </div>
           <div className="button-section">
             <button
-              disabled={!(userFromData.email && userFromData.password)}
+              disabled={!(userFormData.email && userFormData.password)}
               className="btn"
               type="submit"
               variant="success"
