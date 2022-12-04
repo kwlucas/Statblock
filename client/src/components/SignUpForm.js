@@ -38,9 +38,9 @@ function SignUpForm() {
         variables: { ...userFromData },
       });
 
-      const { token, user } = data.createUser;
+      const { token } = data.createUser;
 
-      console.log(user);
+      // console.log(user);
       Auth.login(token);
     } catch (err) {
       console.error(err);
@@ -79,6 +79,7 @@ function SignUpForm() {
               </label>
               <input
                 type="text"
+                name="username"
                 id="textUserName"
                 className="inputBox"
                 onChange={handleInputChange}
@@ -91,7 +92,8 @@ function SignUpForm() {
                 Email
               </label>
               <input
-                type="text"
+                type="email"
+                name="email"
                 id="textEmail"
                 className="inputBox"
                 onChange={handleInputChange}
@@ -104,7 +106,8 @@ function SignUpForm() {
                 Password
               </label>
               <input
-                type="text"
+                type="password"
+                name="password"
                 id="textPassword"
                 className="inputBox"
                 onChange={handleInputChange}
