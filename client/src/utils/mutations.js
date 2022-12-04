@@ -117,41 +117,41 @@ mutation CreateCharacter($character: CharacterData) {
 }`;
 
 export const CREATE_STATSET = gql`
-mutation CreateStatset($id: ID!, $character: CharacterData) {
-  updateCharacter(_id: $id, Character: $character) {
-    _id
-    description
-    name
-    owner {
+  mutation CreateStatset($id: ID!, $character: CharacterData) {
+    updateCharacter(_id: $id, Character: $character) {
       _id
-      username
-      email
-      password
-    }
-    race
-    statset {
-      _id
-      type
-      attachedTo {
+      description
+      name
+      owner {
         _id
-        name
-        owner {
+        username
+        email
+        password
+      }
+      race
+      statset {
+        _id
+        type
+        attachedTo {
           _id
-          username
-          email
-          password
-        }
-        race
-        description
-           
-            statset {
-              _id
-              type
-              attachedTo 
-              class
-              background
-              level
-             }
+          name
+          owner {
+            _id
+            username
+            email
+            password
+          }
+          race
+          description
+
+          statset {
+            _id
+            type
+            attachedTo
+            class
+            background
+            level
+          }
           class
           background
           level
@@ -268,7 +268,6 @@ mutation CreateStatset($id: ID!, $character: CharacterData) {
       }
     }
   }
-}
 `;
 
 export const REMOVE_STATSET = gql`
