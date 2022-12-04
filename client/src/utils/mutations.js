@@ -143,17 +143,30 @@ mutation CreateStatset($id: ID!, $character: CharacterData) {
         }
         race
         description
-          }
+           
+            statset {
+              _id
+              type
+              attachedTo 
+              class
+              background
+              level
+             }
           class
           background
           level
           status
           health {
-            
+            hp
+            mhp
           }
           ac
           movement {
-            
+            walking
+            flying
+            climbing
+            swimming
+            primary
           }
           abilities {
             strength
@@ -164,14 +177,36 @@ mutation CreateStatset($id: ID!, $character: CharacterData) {
             charisma
           }
           skills {
-            
+            acrobatics
+            animalHandling
+            arcana
+            athletics
+            deception
+            history
+            insight
+            intimidation
+            investigation
+            medicine
+            nature
+            perception
+            performance
+            persuasion
+            religion
+            sleightOfHand
+            stealth
+            survival
           }
           spellSlots
           traits {
-            
+            feature
+            details
+            priority
           }
           inventory {
-            
+            item
+            quantity
+            details
+            priority
           }
         }
       }
