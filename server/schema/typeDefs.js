@@ -189,7 +189,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createUser(User: UserData): Auth
+    createUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     createCharacter(Character: CharacterData): Character
     updateCharacter(_id: ID!, Character: CharacterData): Character
@@ -203,3 +203,13 @@ const typeDefs = gql`
 
 
 module.exports = typeDefs;
+
+
+// createUser(User: UserData): Auth
+//     login(email: String!, password: String!): Auth
+//     createCharacter(Character: CharacterData): Character
+//     updateCharacter(_id: ID!, Character: CharacterData): Character
+//     createStatset(attachedTo: ID!, Statset: StatsetData): Statset
+//     updateStatset(_id: ID!, Statset: StatsetData): Statset
+//     removeCharacter(characterId: ID!): Character
+//     removeStatset(statsetId: ID!): Statset
