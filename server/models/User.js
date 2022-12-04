@@ -17,12 +17,12 @@ const userSchema = new Schema({
         type: String,
         required: true,
     },
-    characters: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Character',
-        },
-    ],
+    // characters: [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         ref: 'Character',
+    //     },
+    // ],
 });
 
 userSchema.pre('save', async function (next) {
