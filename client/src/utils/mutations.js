@@ -147,62 +147,30 @@ mutation CreateStatset($id: ID!, $character: CharacterData) {
         }
         race
         description
-        statset {
-          _id
-          type
-          attachedTo {
-            _id
-            name
-            owner {
-              _id
-              username
-              email
-              password
-            }
-            race
-            description
+           
             statset {
               _id
               type
-              attachedTo {
-                
-              }
+              attachedTo 
               class
               background
               level
-              status
-              health {
-                
-              }
-              ac
-              movement {
-                
-              }
-              abilities {
-                
-              }
-              skills {
-                
-              }
-              spellSlots
-              traits {
-                
-              }
-              inventory {
-                
-              }
-            }
-          }
+             }
           class
           background
           level
           status
           health {
-            
+            hp
+            mhp
           }
           ac
           movement {
-            
+            walking
+            flying
+            climbing
+            swimming
+            primary
           }
           abilities {
             strength
@@ -213,14 +181,36 @@ mutation CreateStatset($id: ID!, $character: CharacterData) {
             charisma
           }
           skills {
-            
+            acrobatics
+            animalHandling
+            arcana
+            athletics
+            deception
+            history
+            insight
+            intimidation
+            investigation
+            medicine
+            nature
+            perception
+            performance
+            persuasion
+            religion
+            sleightOfHand
+            stealth
+            survival
           }
           spellSlots
           traits {
-            
+            feature
+            details
+            priority
           }
           inventory {
-            
+            item
+            quantity
+            details
+            priority
           }
         }
       }
@@ -533,7 +523,7 @@ mutation UpdateCharacter($id: ID!, $character: CharacterData) {
   }
 }
 }`
- export const UPDATE_STATSET = gql`
+export const UPDATE_STATSET = gql`
  mutation UpdateStatset($id: ID!, $statset: StatsetData) {
   updateStatset(_id: $id, Statset: $statset) {
     _id
