@@ -8,7 +8,7 @@ import { LOGIN_USER } from "../utils/mutations";
 
 function LoginForm() {
   const [userFromData, setUserFormData] = useState({ email: "", password: "" });
-  const [validated] = useState(false);
+  const [validated, setValidation] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
   const [loginUser] = useMutation(LOGIN_USER);
@@ -22,8 +22,7 @@ function LoginForm() {
     event.preventDefault();
 
     const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
+    if (!form.checkValidity()) {
       event.stopPropagation();
     }
 
@@ -51,8 +50,7 @@ function LoginForm() {
   return (
     <dialog id="login-modal" open={loggedIn ? true : false}>
       <form
-        noValidate
-        validated={validated}
+        validation={validated ? 'valid' : 'invalid'}
         onSubmit={handleFormSubmit}
         id="login-form"
       >
