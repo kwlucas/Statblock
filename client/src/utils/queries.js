@@ -10,7 +10,7 @@ export const QUERY_USER = gql`
   }
 `;
 
-export const QUERY_CHARCTERS = gql`
+export const QUERY_CHARACTERS = gql`
   query getCharacters($user: ID) {
     characters(owner: $user)
   }
