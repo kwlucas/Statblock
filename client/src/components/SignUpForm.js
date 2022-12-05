@@ -58,19 +58,10 @@ function SignUpForm() {
     <>
       <dialog id="signup-modal" open={loggedIn}>
         <form
-          validation={validated ? 'valid' : 'invalid'}
+          validation={validated ? "valid" : "invalid"}
           onSubmit={handleFormSubmit}
           id="signup-form"
         >
-          <div
-            className="alert"
-            dismissible='true'
-            onClose={() => setShowAlert(false)}
-            show={showAlert.toString()}
-            variant="danger"
-          >
-            Something went wrong with your login credentials!
-          </div>
           <section className="signup-container">
             <div className="form-title">Sign Up</div>
             <div className="input-section">
@@ -136,6 +127,15 @@ function SignUpForm() {
               <a href="/login" className="login-link">
                 Login
               </a>
+            </div>
+            <div
+              className="alert"
+              dismissible="true"
+              onClose={() => setShowAlert(false)}
+              show={showAlert.toString()}
+              variant="danger"
+            >
+              Oops! Your credentials are incorrect!
             </div>
           </section>
         </form>

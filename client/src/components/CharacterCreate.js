@@ -85,7 +85,7 @@ function CharacterCreate() {
       <form class="">
         <input
           id="charName"
-          value={this.state.value}
+          //   value={this.state.value}
           name="Character Name:"
           onChange={handleInputChange}
           type="text"
@@ -94,7 +94,7 @@ function CharacterCreate() {
         />
         <input
           id="charClass"
-          value={this.state.value}
+          //   value={this.state.value}
           name="Class:"
           onChange={handleInputChange}
           list="classList"
@@ -102,13 +102,13 @@ function CharacterCreate() {
           required
         />
         <datalist id="classList">
-          {classList.map((item, index) => {
-            <option key={index} value={item} />;
-          })}
+          {classList.map((item, index) => (
+            <option key={index} value={item} />
+          ))}
         </datalist>
         <input
           id="charRace"
-          value={this.state.value}
+          //   value={this.state.value}
           name="Race:"
           onChange={() => dispatch({ type: "Handle Race" })}
           list="raceList"
@@ -116,13 +116,13 @@ function CharacterCreate() {
           required
         />
         <datalist id="raceList">
-          {raceList.map((item, index) => {
-            <option key={index} value={item} />;
-          })}
+          {raceList.map((item, index) => (
+            <option key={index} value={item} />
+          ))}
         </datalist>
         <input
           id="charLvl"
-          value={this.state.value}
+          //   value={this.state.value}
           name="Level:"
           onChange={handleInputChange}
           type="number"
@@ -133,7 +133,7 @@ function CharacterCreate() {
         />
         <input
           id="charStr"
-          value={this.state.value}
+          //   value={this.state.value}
           name="Strength:"
           onChange={handleInputChange}
           type="number"
@@ -144,7 +144,7 @@ function CharacterCreate() {
         />
         <input
           id="charDex"
-          value={this.state.value}
+          //   value={this.state.value}
           name="Dexterity:"
           onChange={handleInputChange}
           type="number"
@@ -155,7 +155,7 @@ function CharacterCreate() {
         />
         <input
           id="charCon"
-          value={this.state.value}
+          //   value={this.state.value}
           name="Constitution:"
           onChange={handleInputChange}
           type="number"
@@ -166,7 +166,7 @@ function CharacterCreate() {
         />
         <input
           id="charInt"
-          value={this.state.value}
+          //   value={this.state.value}
           name="Intelligence:"
           onChange={handleInputChange}
           type="number"
@@ -177,7 +177,7 @@ function CharacterCreate() {
         />
         <input
           id="charWis"
-          value={this.state.value}
+          //   value={this.state.value}
           name="Wisdom:"
           onChange={handleInputChange}
           type="number"
@@ -188,7 +188,7 @@ function CharacterCreate() {
         />
         <input
           id="charCha"
-          value={this.state.value}
+          //   value={this.state.value}
           name="Charisma:"
           onChange={handleInputChange}
           type="number"

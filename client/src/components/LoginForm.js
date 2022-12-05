@@ -13,8 +13,6 @@ function LoginForm() {
 
   const [loginUser, { error }] = useMutation(LOGIN_USER);
 
-
-
   const handleInputChange = (event) => {
     const { type, value } = event.target;
     setUserFormData({ ...userFormData, [type]: value });
@@ -22,7 +20,7 @@ function LoginForm() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("Form submitted")
+    console.log("Form submitted");
 
     // const form = event.currentTarget;
     // if (!form.checkValidity()) {
@@ -30,12 +28,15 @@ function LoginForm() {
     // }
 
     try {
-      console.log("Enter try")
+      console.log("Enter try");
       const res = await loginUser({
-        variables: { email: userFormData.email, password: userFormData.password },
+        variables: {
+          email: userFormData.email,
+          password: userFormData.password,
+        },
       });
 
-      console.log(`Data: ${res}`)
+      console.log(`Data: ${res}`);
 
       const data = res.data;
 
@@ -44,7 +45,7 @@ function LoginForm() {
       console.log(token);
       Auth.login(token);
     } catch (err) {
-      console.log("Enter Catch")
+      console.log("Enter Catch");
       console.error(err);
       setShowAlert(true);
     }
@@ -63,15 +64,6 @@ function LoginForm() {
         onSubmit={handleFormSubmit}
         id="login-form"
       >
-        <div
-          className="alert"
-          dismissible="true"
-          onClose={() => setShowAlert(false)}
-          show={showAlert.toString()}
-          variant="danger"
-        >
-          Something went wrong with your login credentials!
-        </div>
         <section className="login-container">
           <div className="form-title">Login</div>
           <div className="input-section">
@@ -117,6 +109,15 @@ function LoginForm() {
               {" "}
               Sign Up
             </a>
+          </div>
+          <div
+            className="alert"
+            dismissible="true"
+            onClose={() => setShowAlert(false)}
+            show={showAlert.toString()}
+            variant="danger"
+          >
+            Oops! Your credentials are incorrect!
           </div>
         </section>
       </form>

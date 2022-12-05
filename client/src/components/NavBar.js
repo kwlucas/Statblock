@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 
 // Importing Navbar Logo
-import logo from "../img/logo.svg";
+import logo from "../img/logo.png";
 
 const NavBar = () => {
   const logout = (event) => {
@@ -24,9 +24,9 @@ const NavBar = () => {
         <Link className="App-links2" to="/dashboard">
           DASHBOARD
         </Link>
-        <Link className="App-links3" to="/dashboard">
+        {/* <Link className="App-links3" to="/dashboard">
           RESOURCES
-        </Link>
+        </Link> */}
         <div>
           {Auth.loggedIn() ? (
             <>
