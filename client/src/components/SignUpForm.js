@@ -2,13 +2,16 @@ import React, { useState } from "react";
 
 import Auth from "../utils/auth";
 
-import { useMutation } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 import { CREATE_USER } from "../utils/mutations";
 
+
 function SignUpForm() {
+  const [createUser, { data, loading, error }] = useMutation(CREATE_USER);
+
   const loggedIn = true;
 
-  const [userFromData, setUserFormData] = useState({
+  const [userFormData, setUserFormData] = useState({
     username: "",
     email: "",
     password: "",
@@ -17,33 +20,29 @@ function SignUpForm() {
   const [validated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  const [createUser] = useMutation(CREATE_USER);
-
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setUserFormData({ ...userFromData, [name]: value });
+    setUserFormData({ ...userFormData, [name]: value });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
     try {
-      const { data } = await createUser({
-        variables: { ...userFromData },
-      });
+    console.log('Enter signUp Try');
+    console.log(userFormData);
 
-      const { token } = data.createUser;
+    const res = await createUser({
+      variables: { ...userFormData },
+    });
 
-      // console.log(user);
-      Auth.login(token);
+    console.log(res);
+    const token = res.data.createUser.token;
+
+    Auth.login(token);
     } catch (err) {
       console.error(err);
+      console.log("Catch error")
       setShowAlert(true);
     }
 
@@ -74,7 +73,7 @@ function SignUpForm() {
                 id="textUserName"
                 className="inputBox"
                 onChange={handleInputChange}
-                value={userFromData.username}
+                value={userFormData.username}
                 required
               />
             </div>
@@ -88,7 +87,7 @@ function SignUpForm() {
                 id="textEmail"
                 className="inputBox"
                 onChange={handleInputChange}
-                value={userFromData.email}
+                value={userFormData.email}
                 required
               />
             </div>
@@ -102,7 +101,7 @@ function SignUpForm() {
                 id="textPassword"
                 className="inputBox"
                 onChange={handleInputChange}
-                value={userFromData.password}
+                value={userFormData.password}
                 required
               />
             </div>
@@ -113,9 +112,9 @@ function SignUpForm() {
                 variant="success"
                 disabled={
                   !(
-                    userFromData.username &&
-                    userFromData.email &&
-                    userFromData.password
+                    userFormData.username &&
+                    userFormData.email &&
+                    userFormData.password
                   )
                 }
               >

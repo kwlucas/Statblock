@@ -22,28 +22,25 @@ function LoginForm() {
     event.preventDefault();
     console.log("Form submitted");
 
-    // const form = event.currentTarget;
-    // if (!form.checkValidity()) {
-    //   event.stopPropagation();
-    // }
+    const form = event.currentTarget;
+    if (!form.checkValidity()) {
+      event.stopPropagation();
+    }
 
     try {
       console.log("Enter try");
       const res = await loginUser({
-        variables: {
-          email: userFormData.email,
-          password: userFormData.password,
-        },
+        variables: { ...userFormData },
       });
 
       console.log(`Data: ${res}`);
 
       const data = res.data;
 
-      const { token } = data.login;
+      // const { token } = data.login;
 
-      console.log(token);
-      Auth.login(token);
+      // console.log(token);
+      Auth.login(data.login);
     } catch (err) {
       console.log("Enter Catch");
       console.error(err);
