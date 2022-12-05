@@ -1,22 +1,16 @@
 // Import components
-import CharacterCard from "../components/CharacterCard";
+import CharacterCreate from "../components/CharacterCreate";
 
 // Import pages
-import CharacterSheet from "./CharacterSheet";
-import CharacterCreation from "./CharacterCreation";
+// import CharacterSheet from "./CharacterSheet";
+// import CharacterCreate from "./CharacterCreation";
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function Dashboard() {
   return (
-    <div className="dashboard-section">
-      <div className="character-card-section">
-        {/* add logic for last character here */}
-        <CharacterCard />
-        Current Character
-      </div>
-      <Link to={CharacterCreation}></Link>
-      <Link to={CharacterSheet}>CharacterSheet</Link>
+    <div className="character-card-section">
+      <CharacterCreate />
     </div>
   );
 }

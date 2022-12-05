@@ -131,7 +131,6 @@ export const CREATE_STATSET = gql`
           }
           race
           description
-
           statset {
             _id
             type

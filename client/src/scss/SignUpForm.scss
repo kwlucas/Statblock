@@ -85,6 +85,7 @@
                 color: grey;
                 width: 100%;
                 font-size: .75rem;
+                margin-bottom: 1rem;
 
                 .login-link {
                     margin-left: .2rem;
@@ -95,6 +96,13 @@
                         transition: .5s;
                     }
                 }
+            }
+
+            .alert {
+                text-align: center;
+                font-family: 'Hind', sans-serif;
+                font-weight: 700;
+                color: #ff4800;
             }
         }
     }
