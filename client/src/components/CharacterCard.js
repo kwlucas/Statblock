@@ -1,12 +1,10 @@
-function CharacterCard() {
+function CharacterCard(props) {
+  const { name, description } = props.character;
   return (
     <div className="character-card-section">
-      <ul>
-        {/* query for character using ID */}
-        <li>Name: </li>
-        <li>Description: </li>
-        <li>Last Modified: </li>
-      </ul>
+      {/* query for character using ID */}
+      <div> {name}</div>
+      <div> {description}</div>
     </div>
   );
 }
