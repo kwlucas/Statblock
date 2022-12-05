@@ -1,0 +1,87 @@
+.character-card-section {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+
+
+    .card-individual {
+        max-width: 100%;
+        width: 10rem;
+        background-color: white;
+        padding: 2rem 3rem 2rem 3rem;
+        margin: 2rem;
+        vertical-align: top;
+        box-shadow: 20px 20px 50px rgb(7, 7, 7);
+        cursor: pointer;
+        &:hover{
+            -webkit-transform: scale(1.01);
+            -ms-transform: scale(1.01);
+            transform: scale(1.01);
+            transition:.5s ease-in-out;
+        }
+
+        .character-race{
+            font-family: 'Hind', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #ff4800;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .character-name{
+            font-family: 'Hind', sans-serif;
+            font-weight: 700;
+            font-size: .75rem;
+            color: #ff4800;
+            justify-content: center;
+            margin-bottom: .75rem;
+
+            .name-sub{
+                font-family: 'Hind', sans-serif;
+                font-weight: 400;
+                font-size: 1.5rem;
+                color: rgb(179, 179, 179);
+                justify-content: center;
+                margin-bottom: 1rem;
+            }
+        }
+    
+        .character-desc {
+            font-family: 'Hind', sans-serif;
+            font-weight: 700;
+            font-size: .75rem;
+            color: #ff4800;
+            justify-content: center;
+            margin-bottom: 1;
+
+            .desc-sub {
+                font-family: 'Hind', sans-serif;
+                font-weight: 400;
+                font-size: 1rem;
+                color: rgb(179, 179, 179);
+                justify-content: center;
+                margin-bottom: 1;
+            }
+        }
+
+        .character-level {
+            font-family: 'Hind', sans-serif;
+            font-weight: 700;
+            font-size: .75rem;
+            color: #ff4800;
+            justify-content: center;
+            margin-bottom: 1;
+
+            .level-sub {
+                font-family: 'Hind', sans-serif;
+                font-weight: 700;
+                font-size: 1rem;
+                color: rgb(179, 179, 179);
+                justify-content: center;
+                margin-bottom: 1;
+            }
+        }
+    }
+}
