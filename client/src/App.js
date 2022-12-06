@@ -21,7 +21,7 @@ import SignUpForm from "./components/SignUpForm";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import CharacterCreate from "./components/CharacterCreate";
-// import CharacterSheet from "./pages/CharacterSheet";
+import CharacterSheet from "./pages/CharacterSheet";
 
 import background from "./img/background.svg";
 
@@ -58,7 +58,7 @@ function App() {
               <Route path="/login" element={<LoginForm />} />
               <Route path="/signup" element={<SignUpForm />} />
               <Route path="/characterCreate" element={<CharacterCreate />} />
-              {/* <Route path="/characterSheet" element={<CharacterSheet />} /> */}
+              <Route path="/characterSheet" element={<CharacterSheet />} />
             </Routes>
           </div>
           <FooterNavBar />

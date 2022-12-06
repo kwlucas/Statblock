@@ -38,7 +38,7 @@ const NavBar = () => {
                 Create Character
               </Link>
               <div className="App-links6" id="logout-btn" onClick={logout}>
-                Logout
+                LOGOUT
               </div>
             </>
           ) : (
@@ -61,3 +61,12 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+//                + CHARACTER
+//              </Link>
+//              <Link className="App-links5" to="/characterSheet">
+//                YOUR CHARACTER
+//              </Link>
+//              <button className="logout-link" onClick={logout}>
+//                LOGOUT
+//              </button>

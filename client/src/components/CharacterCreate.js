@@ -20,12 +20,12 @@ const initialFormState = {
 };
 
 function CharacterCreate() {
-  const [statDisplay, setStatDisplay] = useState(false)
+  const [statDisplay, setStatDisplay] = useState(false);
   const [characterEntries, setCharacterEntries] = useState({
     name: "",
     race: "",
     description: "",
-  })
+  });
   const [formState, dispatch] = useReducer(charReducer, initialFormState);
 
   const [createCharacter] = useMutation(CREATE_CHARACTER);
@@ -34,15 +34,13 @@ function CharacterCreate() {
 
   const changeStatDisplay = () => {
     setStatDisplay(!statDisplay);
-  }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    
     if (['name', 'race', 'description'].includes(name)) {
       setCharacterEntries({ ...characterEntries, [name]: value });
-    }
-
-    if (['name', 'race', 'description'].includes(name)) {
       if(name === 'race'){
         //dispatch({type: 'Handle Race'});
       }
@@ -117,7 +115,6 @@ function CharacterCreate() {
       variables: {...characterEntries}
     })
     if (statDisplay) {
-
     }
     window.location.assign('/dashboard');
   };
@@ -126,7 +123,8 @@ function CharacterCreate() {
       <div className="create-character-section">
         <form className="create-character-form">
           <h1>New Character Sheet</h1>
-          <button className="stats-btn" onClick={changeStatDisplay}>{statDisplay ? "No Stats" : "Add Stats"}</button>
+          <button className="stats-btn" onClick={changeStatDisplay}>{statDisplay ? "NO STATS" : "ADD STATS"}</button>
+          
           <h4>CHARACTER NAME:</h4>
           <input
             id="charName"
@@ -270,10 +268,15 @@ function CharacterCreate() {
               />
             </div>
           </div>
-          <h4>Description</h4>
-          <textarea id="charDesc" onChange={handleInputChange} name="description" placeholder="Enter a description..."></textarea>
+          <h4>DESCRIPTION:</h4>
+          <textarea
+            id="charDesc"
+            onChange={handleInputChange}
+            name="description"
+            placeholder="Enter a description..."
+          ></textarea>
           <button type="submit" className="btn" onClick={handleFormSubmit}>
-            Proceed
+            PROCEED
           </button>
         </form>
         <form className="upload-section">
@@ -289,3 +292,11 @@ function CharacterCreate() {
 }
 
 export default CharacterCreate;
+
+
+//<div className="header">
+  //          <h1>New Character Sheet</h1>
+    //        <button onClick={changeStatDisplay}>
+      //        {statDisplay ? "NO STATS" : "ADD STATS"}
+        //    </button>
+          //</div>
