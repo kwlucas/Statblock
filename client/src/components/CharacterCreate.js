@@ -3,7 +3,7 @@ import charReducer from "../utils/charReducer";
 
 import Auth from "../utils/auth";
 import { CREATE_CHARACTER, CREATE_STATSET } from "../utils/mutations";
-import { useQuery, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 
 const initialFormState = {
   class: "",
@@ -106,9 +106,12 @@ function CharacterCreate() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const userData = Auth.getUser();
+    console.log(userData);
     if(userData){
+      const characterObj = {character: {...charcterEntries, owner: userData.data._id}}
+      console.log(characterObj)
       createCharacter({
-        variables: {charcterEntries}
+        variables: characterObj
       })
     }
 
@@ -126,7 +129,7 @@ function CharacterCreate() {
           <input
             id="charName"
             //   value={this.state.value}
-            name="Character Name:"
+            name="name"
             onChange={handleInputChange}
             type="text"
             placeholder="Your name here..."
@@ -152,7 +155,7 @@ function CharacterCreate() {
           <input
             id="charRace"
             //   value={this.state.value}
-            name="Race:"
+            name="race"
             onChange={() => dispatch({ type: "Handle Race" })}
             list="raceList"
             placeholder="Enter your race here..."
@@ -264,6 +267,8 @@ function CharacterCreate() {
               />
             </div>
           </div>
+          <h4>Description</h4>
+          <textarea id="charDesc" onChange={handleInputChange} name="description" placeholder="Enter a description..."></textarea>
           <button type="submit" className="btn" onClick={handleFormSubmit}>
             Proceed
           </button>
