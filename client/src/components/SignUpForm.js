@@ -7,7 +7,7 @@ import { CREATE_USER } from "../utils/mutations";
 
 
 function SignUpForm() {
-  const [createUser, { error }] = useMutation(CREATE_USER);
+  const [createUser] = useMutation(CREATE_USER);
 
   const loggedIn = true;
 
