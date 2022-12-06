@@ -125,7 +125,7 @@ function CharacterCreate() {
       <div className="create-character-section">
         <form className="create-character-form">
           <h1>New Character Sheet</h1>
-          <button onClick={changeStatDisplay}>{statDisplay ? "No Stats" : "Add Stats"}</button>
+          <button className="stats-btn" onClick={changeStatDisplay}>{statDisplay ? "No Stats" : "Add Stats"}</button>
           <h4>CHARACTER NAME:</h4>
           <input
             id="charName"
