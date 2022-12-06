@@ -20,12 +20,12 @@ const initialFormState = {
 };
 
 function CharacterCreate() {
-  const [statDisplay, setStatDisplay] = useState(false)
+  const [statDisplay, setStatDisplay] = useState(false);
   const [charcterEntries, setCharacterEntries] = useState({
     name: "",
     race: "",
     description: "",
-  })
+  });
   const [formState, dispatch] = useReducer(charReducer, initialFormState);
 
   const [createCharacter] = useMutation(CREATE_CHARACTER);
@@ -34,15 +34,15 @@ function CharacterCreate() {
 
   const changeStatDisplay = () => {
     setStatDisplay(!statDisplay);
-  }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if(['name', 'race', 'description'].includes(name)){
+    if (["name", "race", "description"].includes(name)) {
       setCharacterEntries({ ...charcterEntries, [name]: value });
     }
 
-    if(['name', 'description'].includes(name)){
+    if (["name", "description"].includes(name)) {
       return;
     }
 
@@ -107,24 +107,29 @@ function CharacterCreate() {
     e.preventDefault();
     const userData = Auth.getUser();
     console.log(userData);
-    if(userData){
-      const characterObj = {character: {...charcterEntries, owner: userData.data._id}}
-      console.log(characterObj)
+    if (userData) {
+      const characterObj = {
+        character: { ...charcterEntries, owner: userData.data._id },
+      };
+      console.log(characterObj);
       createCharacter({
-        variables: characterObj
-      })
+        variables: characterObj,
+      });
     }
 
-    if(statDisplay){
-
+    if (statDisplay) {
     }
   };
   return (
     <>
       <div className="create-character-section">
         <form className="create-character-form">
-          <h1>New Character Sheet</h1>
-          <button onClick={changeStatDisplay}>{statDisplay ? "No Stats": "Add Stats"}</button>
+          <div className="header">
+            <h1>New Character Sheet</h1>
+            <button onClick={changeStatDisplay}>
+              {statDisplay ? "NO STATS" : "ADD STATS"}
+            </button>
+          </div>
           <h4>CHARACTER NAME:</h4>
           <input
             id="charName"
@@ -135,11 +140,13 @@ function CharacterCreate() {
             placeholder="Your name here..."
             required
           />
-          <h4 className={statDisplay ? "statItem": "statItem hidden"}>CHARACTER CLASS:</h4>
+          <h4 className={statDisplay ? "statItem" : "statItem hidden"}>
+            CHARACTER CLASS:
+          </h4>
           <input
             id="charClass"
             //   value={this.state.value}
-            className={statDisplay ? "statItem": "statItem hidden"}
+            className={statDisplay ? "statItem" : "statItem hidden"}
             name="Class:"
             onChange={handleInputChange}
             list="classList"
@@ -166,7 +173,13 @@ function CharacterCreate() {
               <option key={index} value={item} />
             ))}
           </datalist>
-          <div className={statDisplay ? "character-stats-first-row": "character-stats-first-row hidden"}>
+          <div
+            className={
+              statDisplay
+                ? "character-stats-first-row"
+                : "character-stats-first-row hidden"
+            }
+          >
             <div className="LVL-container">
               <h4>LVL</h4>
               <input
@@ -267,16 +280,26 @@ function CharacterCreate() {
               />
             </div>
           </div>
-          <h4>Description</h4>
-          <textarea id="charDesc" onChange={handleInputChange} name="description" placeholder="Enter a description..."></textarea>
+          <h4>DESCRIPTION:</h4>
+          <textarea
+            id="charDesc"
+            onChange={handleInputChange}
+            name="description"
+            placeholder="Enter a description..."
+          ></textarea>
           <button type="submit" className="btn" onClick={handleFormSubmit}>
-            Proceed
+            PROCEED
           </button>
         </form>
         <form action="/action_page.php" className="upload-section">
           <div className="input-fields">
-            <input type="file" id="myFile" name="" />
-            <input type="submit" />
+            <input
+              type="file"
+              id="myFile"
+              name="filename"
+              className="choose-file-button"
+            />
+            <input type="submit" className="submit-button" />
           </div>
         </form>
       </div>
