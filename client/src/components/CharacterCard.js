@@ -10,14 +10,8 @@ function CharacterCard(props) {
           NAME:
           <div className="name-sub">{name}</div>
         </div>
-        <div className="character-desc">
-          DESCRIPTION:
-          <div className="desc-sub">{description}</div>
-        </div>
-        <div className="character-level">
-          LEVEL:
-          <div className="level-sub">{level}</div>
-        </div>
+        {description ? <div className="character-desc">DESCRIPTION:<div className="desc-sub">{description}</div></div> : <></>}
+        {level ? <div className="character-level">LEVEL:<div className="level-sub">{level}</div></div> : <></>}
       </div>
     </div>
   );
