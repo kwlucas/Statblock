@@ -52,6 +52,7 @@ function Dashboard() {
   return (
     <>
       <div className="add-character-section">
+        <div></div>
         <Link className="btn-add-new-character" to="/characterCreate">
           + CHARACTER
         </Link>
