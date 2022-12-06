@@ -98,7 +98,7 @@ function LoginForm() {
 
           <div className="sign-up-section">
             Don't have an account yet,
-            <a href="/" className="sign-up-link">
+            <a href="/signup" className="sign-up-link">
               {" "}
               Sign Up
             </a>
