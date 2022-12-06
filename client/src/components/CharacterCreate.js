@@ -21,7 +21,7 @@ const initialFormState = {
 
 function CharacterCreate() {
   const [statDisplay, setStatDisplay] = useState(false)
-  const [charcterEntries, setCharacterEntries] = useState({
+  const [characterEntries, setCharacterEntries] = useState({
     name: "",
     race: "",
     description: "",
@@ -38,11 +38,11 @@ function CharacterCreate() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if(['name', 'race', 'description'].includes(name)){
-      setCharacterEntries({ ...charcterEntries, [name]: value });
+    if (['name', 'race', 'description'].includes(name)) {
+      setCharacterEntries({ ...characterEntries, [name]: value });
     }
 
-    if(['name', 'description'].includes(name)){
+    if (['name', 'description'].includes(name)) {
       return;
     }
 
@@ -105,17 +105,15 @@ function CharacterCreate() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const userData = Auth.getUser();
-    console.log(userData);
-    if(userData){
-      const characterObj = {character: {...charcterEntries, owner: userData.data._id}}
-      console.log(characterObj)
-      createCharacter({
-        variables: characterObj
-      })
+    if (!Auth.loggedIn()) {
+      console.log("Authorization Error")
+      return;
     }
-
-    if(statDisplay){
+    console.log(characterEntries)
+    createCharacter({
+      variables: {...characterEntries}
+    })
+    if (statDisplay) {
 
     }
   };
@@ -124,7 +122,7 @@ function CharacterCreate() {
       <div className="create-character-section">
         <form className="create-character-form">
           <h1>New Character Sheet</h1>
-          <button onClick={changeStatDisplay}>{statDisplay ? "No Stats": "Add Stats"}</button>
+          <button onClick={changeStatDisplay}>{statDisplay ? "No Stats" : "Add Stats"}</button>
           <h4>CHARACTER NAME:</h4>
           <input
             id="charName"
@@ -135,11 +133,11 @@ function CharacterCreate() {
             placeholder="Your name here..."
             required
           />
-          <h4 className={statDisplay ? "statItem": "statItem hidden"}>CHARACTER CLASS:</h4>
+          <h4 className={statDisplay ? "statItem" : "statItem hidden"}>CHARACTER CLASS:</h4>
           <input
             id="charClass"
             //   value={this.state.value}
-            className={statDisplay ? "statItem": "statItem hidden"}
+            className={statDisplay ? "statItem" : "statItem hidden"}
             name="Class:"
             onChange={handleInputChange}
             list="classList"
@@ -166,7 +164,7 @@ function CharacterCreate() {
               <option key={index} value={item} />
             ))}
           </datalist>
-          <div className={statDisplay ? "character-stats-first-row": "character-stats-first-row hidden"}>
+          <div className={statDisplay ? "character-stats-first-row" : "character-stats-first-row hidden"}>
             <div className="LVL-container">
               <h4>LVL</h4>
               <input
