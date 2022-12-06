@@ -1,8 +1,37 @@
 .dashboard-section{
-    width: 100%;
-    margin: 3rem;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
 
-    .character-card-section{
-        width: 75%;
+.add-character-section{
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 14rem;
+   
+
+    .btn-add-new-character{
+        border: none;
+        padding: 1rem;
+        background-color: #ff4800;
+        font-family: 'Hind', sans-serif;
+        font-weight: 700;
+        font-size: .75rem;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        width: 10%;
+
+        &:hover {
+            transition: .5s;
+            color: #ff4800;
+            background-color: white;
+            font-weight: 700;
+        }
     }
 }

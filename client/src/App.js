@@ -20,8 +20,8 @@ import SignUpForm from "./components/SignUpForm";
 // Import pages
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import CharacterCreation from "./pages/CharacterCreation";
-import CharacterSheet from "./pages/CharacterSheet";
+import CharacterCreate from "./components/CharacterCreate";
+// import CharacterSheet from "./pages/CharacterSheet";
 
 import background from "./img/background.svg";
 
@@ -57,11 +57,8 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/login" element={<LoginForm />} />
               <Route path="/signup" element={<SignUpForm />} />
-              <Route
-                path="/characterCreation"
-                element={<CharacterCreation />}
-              />
-              <Route path="/characterSheet" element={<CharacterSheet />} />
+              <Route path="/characterCreate" element={<CharacterCreate />} />
+              {/* <Route path="/characterSheet" element={<CharacterSheet />} /> */}
             </Routes>
           </div>
           <FooterNavBar />

@@ -1,6 +1,9 @@
 // Import components
 // import CharacterCreate from "../components/CharacterCreate";
 import CharacterCard from "../components/CharacterCard";
+// import CharacterCreate from "../components/characterCreate";
+
+import { Link } from "react-router-dom";
 
 import Auth from "../utils/auth";
 import { QUERY_CHARACTERS } from "../utils/queries";
@@ -44,11 +47,18 @@ function Dashboard() {
   //   console.log(characters);
   // }
   return (
-    <div className="character-card-section">
-      {testCharacters.map((item, index) => (
-        <CharacterCard key={index} character={item} />
-      ))}
-    </div>
+    <>
+      <div className="add-character-section">
+        <Link className="btn-add-new-character" to="/characterCreate">
+          + CHARACTER
+        </Link>
+      </div>
+      <div className="dashboard-section">
+        {testCharacters.map((item, index) => (
+          <CharacterCard key={index} character={item} />
+        ))}
+      </div>
+    </>
   );
 }
 
