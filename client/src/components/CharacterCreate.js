@@ -42,7 +42,10 @@ function CharacterCreate() {
       setCharacterEntries({ ...characterEntries, [name]: value });
     }
 
-    if (['name', 'description'].includes(name)) {
+    if (['name', 'race', 'description'].includes(name)) {
+      if(name === 'race'){
+        //dispatch({type: 'Handle Race'});
+      }
       return;
     }
 
@@ -155,7 +158,7 @@ function CharacterCreate() {
             id="charRace"
             //   value={this.state.value}
             name="race"
-            onChange={() => dispatch({ type: "Handle Race" })}
+            onChange={handleInputChange}
             list="raceList"
             placeholder="Enter your race here..."
             required={statDisplay}
