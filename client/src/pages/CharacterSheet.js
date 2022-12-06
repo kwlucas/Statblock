@@ -23,12 +23,12 @@ const testCharacters = [
 
 function CharacterSheet() {
   const { characterId } = useParams();
-  console.log(characterId);
+  //console.log(characterId);
 
   const { data } = useQuery(QUERY_CHARACTER, {
     variables: { characterId: characterId }
   })
-  console.log(data);
+  //console.log(data);
   if(!data){
     return <></>
   }
