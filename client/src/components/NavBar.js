@@ -37,9 +37,9 @@ const NavBar = () => {
               <Link className="App-links4" to="/characterCreation">
                 Create Character
               </Link>
-              <button className="App-links6" onClick={logout}>
+              <div className="App-links6" id="logout-btn" onClick={logout}>
                 Logout
-              </button>
+              </div>
             </>
           ) : (
             <>
