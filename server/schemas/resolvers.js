@@ -59,14 +59,10 @@ const resolvers = {
     },
 
     // Add a third argument to the resolver to access data in our `context`
-    createCharacter: async (parent, characterObj, context) => {
+    createCharacter: async (parent, {name, race, description}, context) => {
       if (context.user) {
-        const character = await Character.create({...characterObj});
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { characters: character._id } }
-        );
-        return character;
+        const newCharacter = await Character.create({owner: context.user._id, name, race, description});
+        return newCharacter;
       }
       // If user attempts to execute this mutation and isn't logged in, throw an error
       throw new AuthenticationError("You need to be logged in!");
