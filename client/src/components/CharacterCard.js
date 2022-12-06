@@ -1,9 +1,15 @@
 function CharacterCard(props) {
-  const { race, name, description, level } = props.character;
+  const { _id, race, name, description, level } = props.character;
+
+  function handleClick() {
+    console.log(`This character's id is ${_id}`);
+    //Use id to redirect to character sheet
+  }
+
   return (
     <div className="character-card-section">
       {/* query for character using ID */}
-      <div className="card-individual">
+      <div className="card-individual" onClick={handleClick}>
         {/* <div className="character-name">{image}</div> */}
         <div className="character-race">{race}</div>
         <div className="character-name">
