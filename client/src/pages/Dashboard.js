@@ -57,7 +57,7 @@ function Dashboard() {
         </Link>
       </div>
       <div className="dashboard-section">
-        {characters.map((item, index) => (
+        {(characters || []).map((item, index) => (
           <CharacterCard key={index} character={item} />
         ))}
       </div>
