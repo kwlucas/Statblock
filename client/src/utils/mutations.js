@@ -23,8 +23,8 @@ mutation login($email: String!, $password: String!) {
 `;
 
 export const CREATE_CHARACTER = gql`
-mutation createCharacter($character: CharacterData) {
-  createCharacter(Character: $character) {
+mutation createCharacter($name: String!, $race: String, $description: String) {
+  createCharacter(name: $name, race: $race, description: $description) {
     _id
     name
     owner {
@@ -33,9 +33,6 @@ mutation createCharacter($character: CharacterData) {
     }
     race
     description
-    statset {
-      _id
-    }
   }
 }`;
 
