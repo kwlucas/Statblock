@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Auth from "../utils/auth";
 
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { CREATE_USER } from "../utils/mutations";
 
 
 function SignUpForm() {
-  const [createUser, { error }] = useMutation(CREATE_USER);
+  const [createUser] = useMutation(CREATE_USER);
 
   const loggedIn = true;
 
@@ -29,17 +30,17 @@ function SignUpForm() {
     event.preventDefault();
 
     try {
-    console.log('Enter signUp Try');
-    console.log(userFormData);
+      console.log('Enter signUp Try');
+      console.log(userFormData);
 
-    const res = await createUser({
-      variables: { ...userFormData },
-    });
+      const res = await createUser({
+        variables: { ...userFormData },
+      });
 
-    console.log(res);
-    const token = res.data.createUser.token;
+      console.log(res);
+      const token = res.data.createUser.token;
 
-    Auth.login(token);
+      Auth.login(token);
     } catch (err) {
       console.error(err);
       console.log("Catch error")
@@ -61,7 +62,7 @@ function SignUpForm() {
           onSubmit={handleFormSubmit}
           id="signup-form"
         >
-          <section className="signup-container">
+          <section className={!Auth.loggedIn() ? "signup-container" : "signup-container hidden"}>
             <div className="form-title">Sign Up</div>
             <div className="input-section">
               <label htmlFor="textUserName" className="label-input">
@@ -128,13 +129,19 @@ function SignUpForm() {
               </a>
             </div>
             <div
-              className="alert"
+              className={showAlert ? "alert" : "alert hidden"}
               dismissible="true"
               onClose={() => setShowAlert(false)}
-              show={showAlert.toString()}
               variant="danger"
             >
               Oops! Your credentials are incorrect!
+            </div>
+          </section>
+          <section className={Auth.loggedIn() ? "signup-container" : "signup-container hidden"}>
+            <div className="redirect">You are already logged in. Go to your
+              <Link className="redirect-link" to="/dashboard">
+                Dashboard
+              </Link>?
             </div>
           </section>
         </form>

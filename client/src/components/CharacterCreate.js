@@ -21,7 +21,7 @@ const initialFormState = {
 
 function CharacterCreate() {
   const [statDisplay, setStatDisplay] = useState(false);
-  const [charcterEntries, setCharacterEntries] = useState({
+  const [characterEntries, setCharacterEntries] = useState({
     name: "",
     race: "",
     description: "",
@@ -38,11 +38,12 @@ function CharacterCreate() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if (["name", "race", "description"].includes(name)) {
-      setCharacterEntries({ ...charcterEntries, [name]: value });
-    }
-
-    if (["name", "description"].includes(name)) {
+    
+    if (['name', 'race', 'description'].includes(name)) {
+      setCharacterEntries({ ...characterEntries, [name]: value });
+      if(name === 'race'){
+        //dispatch({type: 'Handle Race'});
+      }
       return;
     }
 
@@ -105,31 +106,25 @@ function CharacterCreate() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const userData = Auth.getUser();
-    console.log(userData);
-    if (userData) {
-      const characterObj = {
-        character: { ...charcterEntries, owner: userData.data._id },
-      };
-      console.log(characterObj);
-      createCharacter({
-        variables: characterObj,
-      });
+    if (!Auth.loggedIn()) {
+      console.log("Authorization Error")
+      return;
     }
-
+    console.log(characterEntries)
+    createCharacter({
+      variables: {...characterEntries}
+    })
     if (statDisplay) {
     }
+    window.location.assign('/dashboard');
   };
   return (
     <>
       <div className="create-character-section">
         <form className="create-character-form">
-          <div className="header">
-            <h1>New Character Sheet</h1>
-            <button onClick={changeStatDisplay}>
-              {statDisplay ? "NO STATS" : "ADD STATS"}
-            </button>
-          </div>
+          <h1>New Character Sheet</h1>
+          <button className="stats-btn" onClick={changeStatDisplay}>{statDisplay ? "NO STATS" : "ADD STATS"}</button>
+          
           <h4>CHARACTER NAME:</h4>
           <input
             id="charName"
@@ -138,11 +133,10 @@ function CharacterCreate() {
             onChange={handleInputChange}
             type="text"
             placeholder="Your name here..."
+            autoComplete="off"
             required
           />
-          <h4 className={statDisplay ? "statItem" : "statItem hidden"}>
-            CHARACTER CLASS:
-          </h4>
+          <h4 className={statDisplay ? "statItem" : "statItem hidden"}>CHARACTER CLASS:</h4>
           <input
             id="charClass"
             //   value={this.state.value}
@@ -163,7 +157,7 @@ function CharacterCreate() {
             id="charRace"
             //   value={this.state.value}
             name="race"
-            onChange={() => dispatch({ type: "Handle Race" })}
+            onChange={handleInputChange}
             list="raceList"
             placeholder="Enter your race here..."
             required={statDisplay}
@@ -173,13 +167,7 @@ function CharacterCreate() {
               <option key={index} value={item} />
             ))}
           </datalist>
-          <div
-            className={
-              statDisplay
-                ? "character-stats-first-row"
-                : "character-stats-first-row hidden"
-            }
-          >
+          <div className={statDisplay ? "character-stats-first-row" : "character-stats-first-row hidden"}>
             <div className="LVL-container">
               <h4>LVL</h4>
               <input
@@ -291,15 +279,11 @@ function CharacterCreate() {
             PROCEED
           </button>
         </form>
-        <form action="/action_page.php" className="upload-section">
+        <form className="upload-section">
           <div className="input-fields">
-            <input
-              type="file"
-              id="myFile"
-              name="filename"
-              className="choose-file-button"
-            />
-            <input type="submit" className="submit-button" />
+            <input type="file" id="myFile" name="" />
+            <div>Image Goes Here</div>
+            <button className="btn" type="submit" >Upload</button>
           </div>
         </form>
       </div>
@@ -308,3 +292,11 @@ function CharacterCreate() {
 }
 
 export default CharacterCreate;
+
+
+//<div className="header">
+  //          <h1>New Character Sheet</h1>
+    //        <button onClick={changeStatDisplay}>
+      //        {statDisplay ? "NO STATS" : "ADD STATS"}
+        //    </button>
+          //</div>

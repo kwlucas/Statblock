@@ -2,15 +2,18 @@
     max-width: 100%;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     
 }
 
 .add-character-section{
     max-width: 100%;
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: flex-end;
-    margin-right: 14rem;
+    // justify-content: flex-end;
+    // margin-right: 2rem;
+    grid-template-columns: repeat(8, 1fr);
+    direction: rtl;
    
 
     .btn-add-new-character{
@@ -25,7 +28,7 @@
         justify-content: center;
         color: white;
         cursor: pointer;
-        width: 10%;
+        // width: 10%;
 
         &:hover {
             transition: .5s;

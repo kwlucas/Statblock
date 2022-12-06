@@ -7,13 +7,32 @@
     border: none;
     box-shadow: 20px 20px 50px rgb(7, 7, 7);
 
-    #signup-form{
+    #signup-form {
         width: 100%;
 
-        .signup-container{
+        .signup-container {
             display: block;
             max-width: 100%;
-            
+
+            .redirect {
+                font-size: 2rem;
+                font-family: 'Hind', sans-serif;
+                color: grey;
+                font-weight: 400;
+                height: 100%;
+                text-align: center;
+                .redirect-link {
+                    margin-left: .5rem;
+                    text-decoration: none;
+                    color: #ff4800;
+
+                    &:hover {
+                        color: grey;
+                        transition: .5s;
+                    }
+                }
+            }
+
             .form-title {
                 font-family: 'Hind', sans-serif;
                 font-weight: 700;
@@ -91,6 +110,7 @@
                     margin-left: .2rem;
                     text-decoration: none;
                     color: #ff4800;
+
                     &:hover {
                         color: grey;
                         transition: .5s;
@@ -107,4 +127,3 @@
         }
     }
 }
-

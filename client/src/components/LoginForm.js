@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Auth from "../utils/auth";
 
@@ -11,7 +12,7 @@ function LoginForm() {
   const [validated, setValidation] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  const [login, { error }] = useMutation(LOGIN_USER);
+  const [login] = useMutation(LOGIN_USER);
 
   const handleInputChange = (event) => {
     const { type, value } = event.target;
@@ -25,25 +26,20 @@ function LoginForm() {
     const form = event.currentTarget;
     if (!form.checkValidity()) {
       event.stopPropagation();
+      setValidation(false);
     }
 
     try {
-      console.log("Enter try");
       const res = await login({
         variables: { ...userFormData },
       });
 
-      console.log(`Data: ${res}`);
+      //console.log(`Data: ${res}`);
 
       const data = res.data;
-
-      // const { token } = data.login;
-
-      // console.log(token);
       Auth.login(data.login.token);
     } catch (err) {
-      console.log("Enter Catch");
-      console.error(err);
+      //console.error(err);
       setShowAlert(true);
     }
 
@@ -61,15 +57,15 @@ function LoginForm() {
         onSubmit={handleFormSubmit}
         id="login-form"
       >
-        <section className="login-container">
+        <section className={!Auth.loggedIn() ? "login-container" : "login-container hidden"}>
           <div className="form-title">Login</div>
           <div className="input-section">
-            <label htmlFor="textEmail" id="label-input">
+            <label htmlFor="textEmailLogin" id="label-input">
               Email
             </label>
             <input
               type="email"
-              id="textEmail"
+              id="textEmailLogin"
               className="inputBox"
               onChange={handleInputChange}
               value={userFormData.email}
@@ -77,12 +73,12 @@ function LoginForm() {
             />
           </div>
           <div className="input-section">
-            <label htmlFor="textPassword" id="label-input">
+            <label htmlFor="textPasswordLogin" id="label-input">
               Password
             </label>
             <input
               type="password"
-              id="textPassword"
+              id="textPasswordLogin"
               className="inputBox"
               onChange={handleInputChange}
               value={userFormData.password}
@@ -102,21 +98,27 @@ function LoginForm() {
 
           <div className="sign-up-section">
             Don't have an account yet,
-            <a href="/" className="sign-up-link">
+            <a href="/signup" className="sign-up-link">
               {" "}
               Sign Up
             </a>
           </div>
           <div
-            className="alert"
+            className={showAlert ? "alert" : "alert hidden"}
             dismissible="true"
             onClose={() => setShowAlert(false)}
-            show={showAlert.toString()}
             variant="danger"
           >
             Oops! Your credentials are incorrect!
           </div>
         </section>
+        <section className={Auth.loggedIn() ? "login-container" : "login-container hidden"}>
+            <div className="redirect">You are already logged in. Go to your
+              <Link className="redirect-link" to="/dashboard">
+                Dashboard
+              </Link>?
+            </div>
+          </section>
       </form>
     </dialog>
   );

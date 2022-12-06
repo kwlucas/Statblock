@@ -189,79 +189,82 @@
           font-family: "Hind", sans-serif;
           font-weight: 600;
         }
-      }
+
+        textarea{
+            resize: vertical;
+            min-height: 3rem;
+            padding-left: 1rem;
+            border-radius: none;
+            border: none;
+            background-color: rgb(212, 212, 212);
+            color: rgb(72, 72, 72);
+            font-family: 'Hind', sans-serif;
+            font-weight: 600;
+        }
+    }
 
       .WIS-container {
         display: block;
         width: 35%;
 
-        #charWis {
-          display: block;
-          height: 2rem;
-          height: 2rem;
-          padding-left: 1rem;
-          border-radius: none;
-          border: none;
-          background-color: rgb(212, 212, 212);
-          color: rgb(72, 72, 72);
-          font-family: "Hind", sans-serif;
-          font-weight: 600;
-        }
-      }
+    .stats-btn {
+        border: none;
+        padding: 0.33rem;
+        background-color: #ff4800;
+        font-family: 'Hind', sans-serif;
+        display: flex;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 0.33rem;
+        box-sizing: border-box;
+    } 
 
-      .CHAR-container {
-        display: block;
-        width: 35%;
-
-        #charCha {
-          display: block;
-          height: 2rem;
-          height: 2rem;
-          padding-left: 1rem;
-          border-radius: none;
-          border: none;
-          background-color: rgb(212, 212, 212);
-          color: rgb(72, 72, 72);
-          font-family: "Hind", sans-serif;
-          font-weight: 600;
+        .btn {
+            border: none;
+            padding: 1rem;
+            background-color: #ff4800;
+            font-family: 'Hind', sans-serif;
+            display: flex;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 2rem;
+            box-sizing: border-box;
         }
       }
     }
   }
 
-  h4 {
-    font-family: "Hind", sans-serif;
-    color: #ff4800;
-    font-size: 0.55rem;
-    margin-bottom: 0.5rem;
-  }
+    .upload-section {
+        width: 50%;
+        border-color: #ff4800;
+        border-style: solid;
+        border-width: .25rem;
+        margin: 1rem;
 
-  textarea {
-    height: 2rem;
-    padding: 1rem;
-    border-radius: none;
-    font-family: "Hind", sans-serif;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-  }
+        .input-fields{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-content: center;
+            text-align: center;
+            // margin: 2rem;
+            height: 100%;
+            box-sizing: border-box;
 
-  .btn {
-    border: none;
-    padding: 1rem;
-    background-color: #ff4800;
-    font-family: "Hind", sans-serif;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    color: white;
-    cursor: pointer;
-    width: 100%;
+            #myFile{
+                color: white;
+                margin-left: 30%;
+            }
 
-    &:hover {
-      transition: 0.5s;
-      color: #ff4800;
-      background-color: white;
-      font-weight: 600;
+            div{
+                color: white;
+                font-size: 1.5rem;
+            }
+        }
     }
   }
 }
