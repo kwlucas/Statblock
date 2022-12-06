@@ -1,5 +1,9 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import charReducer from "../utils/charReducer";
+
+import Auth from "../utils/auth";
+import { CREATE_CHARACTER, CREATE_STATSET } from "../utils/mutations";
+import { useMutation } from "@apollo/client";
 
 const initialFormState = {
   class: "",
@@ -16,13 +20,36 @@ const initialFormState = {
 };
 
 function CharacterCreate() {
+  const [statDisplay, setStatDisplay] = useState(false);
+  const [charcterEntries, setCharacterEntries] = useState({
+    name: "",
+    race: "",
+    description: "",
+  });
   const [formState, dispatch] = useReducer(charReducer, initialFormState);
 
+  const [createCharacter] = useMutation(CREATE_CHARACTER);
+
+  const [createStatset] = useMutation(CREATE_STATSET);
+
+  const changeStatDisplay = () => {
+    setStatDisplay(!statDisplay);
+  };
+
   const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    if (["name", "race", "description"].includes(name)) {
+      setCharacterEntries({ ...charcterEntries, [name]: value });
+    }
+
+    if (["name", "description"].includes(name)) {
+      return;
+    }
+
     dispatch({
       type: "Handle Input",
-      field: e.target.name,
-      payload: e.target.value,
+      field: name,
+      payload: value,
     });
   };
 
@@ -78,31 +105,51 @@ function CharacterCreate() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    const userData = Auth.getUser();
+    console.log(userData);
+    if (userData) {
+      const characterObj = {
+        character: { ...charcterEntries, owner: userData.data._id },
+      };
+      console.log(characterObj);
+      createCharacter({
+        variables: characterObj,
+      });
+    }
+
+    if (statDisplay) {
+    }
   };
   return (
     <>
       <div className="create-character-section">
         <form className="create-character-form">
           <h1>New Character Sheet</h1>
+          <button onClick={changeStatDisplay}>
+            {statDisplay ? "No Stats" : "Add Stats"}
+          </button>
           <h4>CHARACTER NAME:</h4>
           <input
             id="charName"
             //   value={this.state.value}
-            name="Character Name:"
+            name="name"
             onChange={handleInputChange}
             type="text"
             placeholder="Your name here..."
             required
           />
-          <h4>CHARACTER CLASS:</h4>
+          <h4 className={statDisplay ? "statItem" : "statItem hidden"}>
+            CHARACTER CLASS:
+          </h4>
           <input
             id="charClass"
             //   value={this.state.value}
+            className={statDisplay ? "statItem" : "statItem hidden"}
             name="Class:"
             onChange={handleInputChange}
             list="classList"
             placeholder="Enter your class here..."
-            required
+            required={statDisplay}
           />
           <datalist id="classList">
             {classList.map((item, index) => (
@@ -113,18 +160,24 @@ function CharacterCreate() {
           <input
             id="charRace"
             //   value={this.state.value}
-            name="Race:"
+            name="race"
             onChange={() => dispatch({ type: "Handle Race" })}
             list="raceList"
             placeholder="Enter your race here..."
-            required
+            required={statDisplay}
           />
           <datalist id="raceList">
             {raceList.map((item, index) => (
               <option key={index} value={item} />
             ))}
           </datalist>
-          <div className="character-stats-first-row">
+          <div
+            className={
+              statDisplay
+                ? "character-stats-first-row"
+                : "character-stats-first-row hidden"
+            }
+          >
             <div className="LVL-container">
               <h4>LVL</h4>
               <input
@@ -136,7 +189,7 @@ function CharacterCreate() {
                 min="1"
                 max="20"
                 placeholder="10"
-                required
+                required={statDisplay}
               />
             </div>
             <div className="STR-container">
@@ -150,7 +203,7 @@ function CharacterCreate() {
                 min="1"
                 max="30"
                 placeholder="10"
-                required
+                required={statDisplay}
               />
             </div>
             <div className="DEX-container">
@@ -164,7 +217,7 @@ function CharacterCreate() {
                 min="1"
                 max="30"
                 placeholder="10"
-                required
+                required={statDisplay}
               />
             </div>
 
@@ -179,7 +232,7 @@ function CharacterCreate() {
                 min="1"
                 max="30"
                 placeholder="10"
-                required
+                required={statDisplay}
               />
             </div>
             <div className="INTEL-container">
@@ -193,7 +246,7 @@ function CharacterCreate() {
                 min="1"
                 max="30"
                 placeholder="10"
-                required
+                required={statDisplay}
               />
             </div>
             <div className="WIS-container">
@@ -207,7 +260,7 @@ function CharacterCreate() {
                 min="1"
                 max="30"
                 placeholder="10"
-                required
+                required={statDisplay}
               />
             </div>
             <div className="CHAR-container">
@@ -221,15 +274,20 @@ function CharacterCreate() {
                 min="1"
                 max="30"
                 placeholder="10"
-                required
+                required={statDisplay}
               />
             </div>
           </div>
-          <div className="button-section">
-            <button type="button" className="btn" onClick={handleFormSubmit}>
-              Proceed
-            </button>
-          </div>
+          <h4>Description</h4>
+          <textarea
+            id="charDesc"
+            onChange={handleInputChange}
+            name="description"
+            placeholder="Enter a description..."
+          ></textarea>
+          <button type="submit" className="btn" onClick={handleFormSubmit}>
+            Proceed
+          </button>
         </form>
         <form action="/action_page.php" className="upload-section">
           <div className="input-fields">

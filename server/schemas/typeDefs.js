@@ -98,6 +98,7 @@ const typeDefs = gql`
 
   input CharacterData {
     name: String!
+    owner: ID!
     race: String
     description: String
   }

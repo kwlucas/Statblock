@@ -23,83 +23,18 @@ mutation login($email: String!, $password: String!) {
 `;
 
 export const CREATE_CHARACTER = gql`
-mutation CreateCharacter($character: CharacterData) {
+mutation createCharacter($character: CharacterData) {
   createCharacter(Character: $character) {
     _id
-    description
     name
     owner {
       _id
       username
-      email
-      password
     }
     race
+    description
     statset {
       _id
-      type
-      attachedTo {
-        _id
-        name
-        race
-        description
-      }
-      class
-      background
-      level
-      status
-      health {
-        hp
-        mhp
-      }
-      ac
-      movement {
-        walking
-        flying
-        climbing
-        swimming
-        primary
-      }
-      abilities {
-        strength
-        dexterity
-        constitution
-        intelligence
-        wisdom
-        charisma
-      }
-      skills {
-        acrobatics
-        animalHandling
-        arcana
-        athletics
-        deception
-        history
-        insight
-        intimidation
-        investigation
-        medicine
-        nature
-        perception
-        performance
-        persuasion
-        religion
-        sleightOfHand
-        stealth
-        survival
-      }
-      spellSlots
-      traits {
-        feature
-        details
-        priority
-      }
-      inventory {
-        item
-        quantity
-        details
-        priority
-      }
     }
   }
 }`;
