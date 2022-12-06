@@ -9,6 +9,7 @@ function Home(props) {
   const demoCharacter = {
     name: "Lorem Ipsum",
     race: "Human",
+    // charClass: "Rouge",
     description: "A mysterious wanderer that no one can quite identify..."
   }
 
