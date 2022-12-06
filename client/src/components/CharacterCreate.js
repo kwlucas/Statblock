@@ -119,6 +119,7 @@ function CharacterCreate() {
     if (statDisplay) {
 
     }
+    window.location.assign('/dashboard');
   };
   return (
     <>
