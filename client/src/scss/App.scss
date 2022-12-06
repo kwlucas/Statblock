@@ -6,6 +6,11 @@ body {
     margin: 1rem 2rem 2rem 2rem;
   }
 
+  #logout-btn{
+    cursor: pointer;
+    display: inline-block;
+  }
+
   #home-container {
     display: flex;
 
