@@ -14,34 +14,35 @@ import { useQuery } from "@apollo/client";
 
 // import { Link } from "react-router-dom";
 
-const testCharacters = [
-  {
-    // image: { dndOrc },
-    race: "Orc",
-    name: "Kyle",
-    description: "He's cool",
-    level: "90/100",
-  },
-  {
-    // image: "../img/dndOrc.png",
-    race: "Elf",
-    name: "Brendon",
-    description: "He's cool too",
-    level: "90/100",
-  },
-  {
-    // image: "../img/dndOrc.png",
-    race: "Barbarian",
-    name: "Andrew",
-    description: "I guess...",
-    level: "75/100",
-  },
-];
+// const testCharacters = [
+//   {
+//     // image: { dndOrc },
+//     race: "Orc",
+//     name: "Kyle",
+//     description: "He's cool",
+//     level: "90/100",
+//   },
+//   {
+//     // image: "../img/dndOrc.png",
+//     race: "Elf",
+//     name: "Brendon",
+//     description: "He's cool too",
+//     level: "90/100",
+//   },
+//   {
+//     // image: "../img/dndOrc.png",
+//     race: "Barbarian",
+//     name: "Andrew",
+//     description: "I guess...",
+//     level: "75/100",
+//   },
+// ];
 
 function Dashboard() {
-  const userData = Auth.getUser();
+  const userData = Auth.getUser().data;
+  console.log(userData);
   const { data } = useQuery(QUERY_CHARACTERS, {
-    variables: { user: userData._id }
+    variables: { userId: userData._id }
   });
   let characters;
   if (data) {
@@ -56,7 +57,7 @@ function Dashboard() {
         </Link>
       </div>
       <div className="dashboard-section">
-        {testCharacters.map((item, index) => (
+        {characters.map((item, index) => (
           <CharacterCard key={index} character={item} />
         ))}
       </div>
