@@ -14,10 +14,11 @@
         box-shadow: 20px 20px 50px rgb(7, 7, 7);
         cursor: pointer;
         &:hover{
-            -webkit-transform: scale(1.01);
-            -ms-transform: scale(1.01);
-            transform: scale(1.01);
-            transition:.5s ease-in-out;
+            -webkit-transform: scale(1.02);
+            -ms-transform: scale(1.02);
+            transform: scale(1.02);
+            transition:.5s ease-in;
+            transition: .5s ease-out;
         }
 
         .character-race{
