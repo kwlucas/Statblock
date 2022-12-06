@@ -38,6 +38,18 @@ body {
     }
   }
 
+  .info-section.alone{
+    p{
+      text-align: center;
+    }
+    .character-card-section{
+      max-width: 75%;
+      margin: auto;
+    }
+  }
+
+
+
   .form-section {
     display: flex;
     flex-direction: column;
