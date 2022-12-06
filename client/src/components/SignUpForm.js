@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import Auth from "../utils/auth";
 
-import { gql, useMutation } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { CREATE_USER } from "../utils/mutations";
 
 
@@ -128,10 +128,9 @@ function SignUpForm() {
               </a>
             </div>
             <div
-              className="alert"
+              className={showAlert ? "alert" : "alert hidden"}
               dismissible="true"
               onClose={() => setShowAlert(false)}
-              show={showAlert.toString()}
               variant="danger"
             >
               Oops! Your credentials are incorrect!
