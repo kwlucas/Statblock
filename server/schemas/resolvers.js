@@ -16,12 +16,18 @@ const resolvers = {
       return characters;
     },
     character: async (parent, { characterId }, context) => {
-      if (context.user) {
-        const character = await Character.find({
-          _id: characterId,
-          owner: context.user.id,
-        }).populate("stats");
-      }
+      console.log(characterId);
+      console.log(context.user);
+      const character = await Character.findById(characterId);
+      return character;
+      // if (context.user) {
+      //   const character = await Character.find({
+      //     _id: characterId,
+      //      owner: context.user.id,
+      //   }).populate("stats");
+      //   console.log(character);
+      //   return character;
+      // }
     },
     statset: async (parent, { statsetId }) => {
       return await Statset.findById(statsetId);
