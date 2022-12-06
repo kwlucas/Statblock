@@ -29,7 +29,6 @@ mutation createCharacter($name: String!, $race: String, $description: String) {
     name
     owner {
       _id
-      username
     }
     race
     description
