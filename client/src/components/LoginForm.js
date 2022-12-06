@@ -11,7 +11,7 @@ function LoginForm() {
   const [validated, setValidation] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
 
-  const [loginUser, { error }] = useMutation(LOGIN_USER);
+  const [login, { error }] = useMutation(LOGIN_USER);
 
   const handleInputChange = (event) => {
     const { type, value } = event.target;
@@ -29,7 +29,7 @@ function LoginForm() {
 
     try {
       console.log("Enter try");
-      const res = await loginUser({
+      const res = await login({
         variables: { ...userFormData },
       });
 
@@ -40,7 +40,7 @@ function LoginForm() {
       // const { token } = data.login;
 
       // console.log(token);
-      Auth.login(data.login);
+      Auth.login(data.login.token);
     } catch (err) {
       console.log("Enter Catch");
       console.error(err);
