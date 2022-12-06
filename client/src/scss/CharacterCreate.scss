@@ -15,41 +15,14 @@
     justify-content: center;
     margin: 1rem 1rem 4rem 8rem;
 
-    .header {
-      display: flex;
-      align-items: center;
-
-      h1 {
-        display: flex;
-        justify-content: flex-start;
-        text-decoration: none;
-        font-family: "Hind", sans-serif;
-        color: #ff4800;
-        font-size: 1.5rem;
-        width: 100%;
-        margin-bottom: 1rem;
-      }
-
-      button {
-        border: none;
-        padding: 0.75rem;
-        background-color: #ff4800;
-        font-family: "Hind", sans-serif;
-        font-weight: 600;
-        font-size: 0.75rem;
-        display: flex;
-        justify-content: center;
-        color: white;
-        cursor: pointer;
-        width: 25%;
-
-        &:hover {
-          transition: 0.5s;
-          color: #ff4800;
-          background-color: white;
-          font-weight: 600;
-        }
-      }
+    h1 {
+      text-align: center;
+      text-decoration: none;
+      font-family: "Hind", sans-serif;
+      color: #ff4800;
+      font-size: 1.5rem;
+      width: 100%;
+      margin-bottom: 1rem;
     }
 
     h4 {
@@ -189,18 +162,6 @@
           font-family: "Hind", sans-serif;
           font-weight: 600;
         }
-
-        textarea {
-          resize: vertical;
-          min-height: 3rem;
-          padding-left: 1rem;
-          border-radius: none;
-          border: none;
-          background-color: rgb(212, 212, 212);
-          color: rgb(72, 72, 72);
-          font-family: 'Hind', sans-serif;
-          font-weight: 600;
-        }
       }
 
       .WIS-container {
@@ -254,20 +215,53 @@
       box-sizing: border-box;
     }
 
-    .btn {
+    textarea {
+      resize: vertical;
+      min-height: 3rem;
+      padding-left: 1rem;
+      border-radius: none;
       border: none;
-      padding: 1rem;
-      background-color: #ff4800;
+      background-color: rgb(212, 212, 212);
+      color: rgb(72, 72, 72);
       font-family: 'Hind', sans-serif;
-      display: flex;
-      justify-content: center;
-      color: white;
-      cursor: pointer;
-      width: 100%;
-      margin-top: 2rem;
-      box-sizing: border-box;
+      font-weight: 600;
     }
   }
+}
+
+button {
+  border: none;
+  padding: 0.75rem;
+  background-color: #ff4800;
+  font-family: "Hind", sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  // width: 25%;
+
+  &:hover {
+    transition: 0.5s;
+    color: #ff4800;
+    background-color: white;
+    font-weight: 600;
+  }
+}
+
+.btn {
+  border: none;
+  padding: 1rem;
+  background-color: #ff4800;
+  font-family: 'Hind', sans-serif;
+  display: flex;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 2rem;
+  box-sizing: border-box;
 }
 
 .upload-section {
@@ -299,39 +293,39 @@
   }
 }
 
-.upload-section {
-  width: 50%;
-  border-color: #ff4800;
-  border-style: solid;
-  border-width: 0.25rem;
-  margin: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+// .upload-section {
+//   width: 50%;
+//   border-color: #ff4800;
+//   border-style: solid;
+//   border-width: 0.25rem;
+//   margin: 1rem;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
 
-  .input-fields {
-    display: block;
-    justify-content: center;
+//   .input-fields {
+//     display: block;
+//     justify-content: center;
 
-    .choose-file-button {
-      display: flex;
-      justify-content: center;
-      flex-direction: space-evenly;
-      width: 100%;
-      height: 2rem;
-      margin-left: 15%;
+//     .choose-file-button {
+//       display: flex;
+//       justify-content: center;
+//       flex-direction: space-evenly;
+//       width: 100%;
+//       height: 2rem;
+//       margin-left: 15%;
 
-      #file-upload-button {
-        border: none;
-        padding: 1rem;
-        background-color: #ff4800;
-        font-family: "Hind", sans-serif;
-      }
-    }
+//       #file-upload-button {
+//         border: none;
+//         padding: 1rem;
+//         background-color: #ff4800;
+//         font-family: "Hind", sans-serif;
+//       }
+//     }
 
-    .submit-button {
-      width: 100%;
-      height: 2rem;
-    }
-  }
-}
+//     .submit-button {
+//       width: 100%;
+//       height: 2rem;
+//     }
+//   }
+// }
