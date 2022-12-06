@@ -30,14 +30,14 @@ const NavBar = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
-              <Link className="App-links4" to="/characterCreation">
-                Create Character
+              <Link className="App-links4" to="/characterCreate">
+                + CHARACTER
               </Link>
               <Link className="App-links5" to="/characterSheet">
-                Your Character
+                YOUR CHARACTER
               </Link>
-              <button className="App-links6" onClick={logout}>
-                Logout
+              <button className="logout-link" onClick={logout}>
+                LOGOUT
               </button>
             </>
           ) : (

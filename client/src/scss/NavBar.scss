@@ -1,70 +1,94 @@
-.NavBar{
+.NavBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: 0 3rem 1rem 3rem;
+  font-family: "Hind", sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+
+  .App-logo {
+    width: 9rem;
     display: flex;
+    justify-content: flex-start;
+  }
+
+  .App-links-section {
+    display: flex;
+    justify-content: flex-end;
     align-items: center;
-    justify-content: space-between;
-    max-width: 100%;
-    margin: 0 3rem 1rem 3rem;
-    font-family: 'Hind', sans-serif;
-    font-weight: 600;
 
-    .App-logo {
-        width: 9rem;
-        display: flex;
-        justify-content: flex-start;
+    .App-links1,
+    .App-links2,
+    .App-links3 {
+      text-decoration: none;
+      color: white;
+      margin-left: 2rem;
+      font-size: 0.75rem;
+      &:hover {
+        color: #f04e24;
+        transition: 0.5s;
       }
- 
-    .App-links-section {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    
-        .App-links1, .App-links2, .App-links3{
-            text-decoration: none;
-            color: white;
-            margin-left: 2rem;
-            &:hover {
-                color: #f04e24;
-                transition: .5s;
-            }
-        } 
-
-        .App-links4, .App-links5, .App-links6 {
-            text-decoration: none;
-            color: white;
-            margin-left: 2rem;
-        }
-
-        .login-signup-section{
-            display: flex;
-            align-items: center;
-
-            .App-links7 {
-                text-decoration: none;
-                color: white;
-                margin-left: 2rem;
-                &:hover {
-                    color: #f04e24;
-                    transition: .5s;
-                }
-            }
-    
-            .divider {
-                margin: .5rem;
-                color: white;
-            }
-    
-            .App-links8 {
-                text-decoration: none;
-                color: white;
-                &:hover {
-                    color: #f04e24;
-                    transition: .5s;
-                }
-            }
-        }
     }
+
+    .App-links4,
+    .App-links5 {
+      text-decoration: none;
+      color: white;
+      margin-left: 2rem;
+      font-size: 0.75rem;
+      &:hover {
+        color: #f04e24;
+        transition: 0.5s;
+      }
+    }
+
+    .logout-link {
+      background-color: #f04e24;
+      font-family: "Hind", sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: white;
+      margin-left: 2rem;
+      border: none;
+      cursor: pointer;
+      padding: 0.75rem 1rem 0.75rem 1rem;
+
+      &:hover {
+        background-color: white;
+        color: #f04e24;
+        transition: 0.5s;
+      }
+    }
+
+    .login-signup-section {
+      display: flex;
+      align-items: center;
+
+      .App-links7 {
+        text-decoration: none;
+        color: white;
+        margin-left: 2rem;
+        &:hover {
+          color: #f04e24;
+          transition: 0.5s;
+        }
+      }
+
+      .divider {
+        margin: 0.5rem;
+        color: white;
+      }
+
+      .App-links8 {
+        text-decoration: none;
+        color: white;
+        &:hover {
+          color: #f04e24;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
 }
-
-
-
-  

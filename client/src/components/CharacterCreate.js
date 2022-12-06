@@ -124,10 +124,12 @@ function CharacterCreate() {
     <>
       <div className="create-character-section">
         <form className="create-character-form">
-          <h1>New Character Sheet</h1>
-          <button onClick={changeStatDisplay}>
-            {statDisplay ? "No Stats" : "Add Stats"}
-          </button>
+          <div className="header">
+            <h1>New Character Sheet</h1>
+            <button onClick={changeStatDisplay}>
+              {statDisplay ? "NO STATS" : "ADD STATS"}
+            </button>
+          </div>
           <h4>CHARACTER NAME:</h4>
           <input
             id="charName"
@@ -278,7 +280,7 @@ function CharacterCreate() {
               />
             </div>
           </div>
-          <h4>Description</h4>
+          <h4>DESCRIPTION:</h4>
           <textarea
             id="charDesc"
             onChange={handleInputChange}
@@ -286,7 +288,7 @@ function CharacterCreate() {
             placeholder="Enter a description..."
           ></textarea>
           <button type="submit" className="btn" onClick={handleFormSubmit}>
-            Proceed
+            PROCEED
           </button>
         </form>
         <form action="/action_page.php" className="upload-section">
