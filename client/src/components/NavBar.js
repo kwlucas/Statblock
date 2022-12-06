@@ -21,7 +21,7 @@ const NavBar = () => {
         <Link className="App-links1" to="/">
           HOME
         </Link>
-        <Link className="App-links2" to={Auth.loggedIn ? "/dashboard" : "/login"}>
+        <Link className="App-links2" to={Auth.loggedIn() ? "/dashboard" : "/login"}>
           DASHBOARD
         </Link>
         {/* <Link className="App-links3" to="/dashboard">
