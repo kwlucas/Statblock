@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Auth from "../utils/auth";
 
@@ -56,7 +57,7 @@ function LoginForm() {
         onSubmit={handleFormSubmit}
         id="login-form"
       >
-        <section className="login-container">
+        <section className={!Auth.loggedIn() ? "login-container" : "login-container hidden"}>
           <div className="form-title">Login</div>
           <div className="input-section">
             <label htmlFor="textEmailLogin" id="label-input">
@@ -111,6 +112,13 @@ function LoginForm() {
             Oops! Your credentials are incorrect!
           </div>
         </section>
+        <section className={Auth.loggedIn() ? "login-container" : "login-container hidden"}>
+            <div className="redirect">You are already logged in. Go to your
+              <Link className="redirect-link" to="/dashboard">
+                Dashboard
+              </Link>?
+            </div>
+          </section>
       </form>
     </dialog>
   );
