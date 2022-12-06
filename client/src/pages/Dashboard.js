@@ -24,13 +24,15 @@ const testCharacters = [
 ];
 
 function Dashboard() {
-  // const { data } = useQuery(QUERY_CHARACTERS);
-  // let characters;
-  // const userData = Auth.getUser();
-  // if (data) {
-  //   characters = userData.data;
-  //   console.log(characters);
-  // }
+  const userData = Auth.getUser();
+  const { data } = useQuery(QUERY_CHARACTERS, {
+    variables: { user: userData._id }
+  });
+  let characters;
+  if (data) {
+    characters = data.characters;
+    console.log(characters);
+  }
   return (
     <div className="character-card-section">
       {testCharacters.map((item, index) => (
