@@ -58,7 +58,7 @@ function App() {
               <Route path="/login" element={<LoginForm />} />
               <Route path="/signup" element={<SignUpForm />} />
               <Route path="/characterCreate" element={<CharacterCreate />} />
-              <Route path="/characterSheet" element={<CharacterSheet />} />
+              <Route path="/characterSheet/:characterId" element={<CharacterSheet />} />
             </Routes>
           </div>
           <FooterNavBar />
