@@ -11,9 +11,21 @@ export const QUERY_USER = gql`
 `;
 
 export const QUERY_CHARACTERS = gql`
-  query getCharacters($user: ID) {
-    characters(owner: $user)
+query characters($user: ID) {
+  characters(user: $user) {
+    _id
+    name
+    description
+    owner {
+      _id
+      username
+    }
+    race
+    statset {
+      _id
+    }
   }
+}
 `;
 
 export const QUERY_CHARACTER = gql`
