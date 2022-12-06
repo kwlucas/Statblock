@@ -2,8 +2,11 @@ function CharacterCard(props) {
   const { _id, race, charClass, name, description, level } = props.character;
 
   function handleClick() {
-    console.log(`This character's id is ${_id}`);
+    //console.log(`This character's id is ${_id}`);
     //Use id to redirect to character sheet
+    if(_id){
+      window.location.assign(`/characterSheet/${_id}`);
+    }
   }
 
   return (
