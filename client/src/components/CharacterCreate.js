@@ -131,6 +131,7 @@ function CharacterCreate() {
             onChange={handleInputChange}
             type="text"
             placeholder="Your name here..."
+            autoComplete="off"
             required
           />
           <h4 className={statDisplay ? "statItem" : "statItem hidden"}>CHARACTER CLASS:</h4>
