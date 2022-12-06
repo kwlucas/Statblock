@@ -9,7 +9,8 @@ function Home(props) {
   const demoCharacter = {
     name: "Lorem Ipsum",
     race: "Human",
-    // charClass: "Rouge",
+    charClass: "Rouge",
+    level: 7,
     description: "A mysterious wanderer that no one can quite identify..."
   }
 
