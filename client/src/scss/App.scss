@@ -3,7 +3,54 @@ body {
 
     .app-container {
       height: 100vh;
-      margin: 2rem 3rem 3rem 3rem;
+      margin: 1rem 2rem 2rem 2rem;
+    }
+
+    #home-container {
+      display: flex;
+
+      *{
+        flex: 1 1 0;
+      }
+    }
+
+    .info-section {
+      color: white;
+
+      h2{
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 0.33rem;
+        margin-top: 0.66rem;
+      }
+      hr {
+        padding: 0;
+        border-bottom: unset;
+        border-right: unset;
+        border-left: unset;
+        border-top: 1.5px solid;
+      }
+    }
+
+    .form-section {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+
+      #form-divider{
+        color: white;
+        font-weight: 700;
+        font-size: 2rem;
+      }
+
+      dialog[id$=modal]{
+        margin: 1rem;
+        position: relative;
+        width: 90% !important;
+        box-sizing: border-box;
+      }
     }
   }
   
