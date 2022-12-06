@@ -84,25 +84,6 @@ const typeDefs = gql`
     priority: Int
   }
 
-  type User {
-    _id: ID
-    username: String!
-    email: String!
-    password: String!
-  }
-
-  type Auth {
-    token: ID!
-    user: User
-  }
-
-  input CharacterData {
-    name: String!
-    owner: ID!
-    race: String
-    description: String
-  }
-
   input StatsetData {
     type: String
     class: String
@@ -118,12 +99,12 @@ const typeDefs = gql`
     traits: [traitObjData]
     inventory: [itemObjData]
   }
-
+  
   input healthObjData {
     hp: Int
     mhp: Int
   }
-
+  
   input movementObjData {
     walking: Int
     flying: Int
@@ -131,7 +112,7 @@ const typeDefs = gql`
     swimming: Int
     primary: String
   }
-
+  
   input abilityObjData {
     strength: Int
     dexterity: Int
@@ -140,7 +121,7 @@ const typeDefs = gql`
     wisdom: Int
     charisma: Int
   }
-
+  
   input skillObjData {
     acrobatics: String
     animalHandling: String
@@ -161,18 +142,30 @@ const typeDefs = gql`
     stealth: String
     survival: String
   }
-
+  
   input traitObjData {
     feature: String
     details: String
     priority: Int
   }
-
+  
   input itemObjData {
     item: String
     quantity: Int
     details: String
     priority: Int
+  }
+
+  type User {
+    _id: ID
+    username: String!
+    email: String!
+    password: String!
+  }
+
+  type Auth {
+    token: ID!
+    user: User
   }
 
   type Query {
@@ -186,8 +179,8 @@ const typeDefs = gql`
   type Mutation {
     createUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    createCharacter(Character: CharacterData): Character
-    updateCharacter(_id: ID!, Character: CharacterData): Character
+    createCharacter(name: String!, race: String, description: String): Character
+    updateCharacter(_id: ID!, name: String, race: String, description: String, Statset: ID): Character
     createStatset(attachedTo: ID!, Statset: StatsetData): Statset
     updateStatset(_id: ID!, Statset: StatsetData): Statset
     removeCharacter(characterId: ID!): Character
@@ -208,3 +201,10 @@ module.exports = typeDefs;
 //     updateStatset(_id: ID!, Statset: StatsetData): Statset
 //     removeCharacter(characterId: ID!): Character
 //     removeStatset(statsetId: ID!): Statset
+
+// input CharacterData {
+//   name: String!
+//   owner: ID!
+//   race: String
+//   description: String
+// }
