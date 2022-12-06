@@ -61,7 +61,7 @@ const resolvers = {
     // Add a third argument to the resolver to access data in our `context`
     createCharacter: async (parent, characterObj, context) => {
       if (context.user) {
-        const character = await Character.create(characterObj);
+        const character = await Character.create({...characterObj});
         await User.findOneAndUpdate(
           { _id: context.user._id },
           { $addToSet: { characters: character._id } }
