@@ -34,7 +34,7 @@ const NavBar = () => {
         <div>
           {Auth.loggedIn() ? (
             <>
-              <Link className="App-links4" to="/characterCreation">
+              <Link className="App-links4" to="/characterCreate">
                 Create Character
               </Link>
               <div className="App-links6" id="logout-btn" onClick={logout}>
