@@ -34,12 +34,14 @@ const resolvers = {
 
   Mutation: {
     createUser: async (parent, { username, email, password }) => {
+      console.log('Sign up resolver');
       const user = await User.create({ username, email, password });
       const token = signToken(user);
 
-      return { token, User };
+      return { token, user };
     },
     login: async (parent, { email, password }) => {
+      console.log('Sign in resolver');
       const user = await User.findOne({ email });
 
       if (!user) {
@@ -53,7 +55,7 @@ const resolvers = {
       }
 
       const token = signToken(user);
-      return { token, User };
+      return { token, user };
     },
 
     // Add a third argument to the resolver to access data in our `context`
