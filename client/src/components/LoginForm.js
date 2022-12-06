@@ -25,25 +25,20 @@ function LoginForm() {
     const form = event.currentTarget;
     if (!form.checkValidity()) {
       event.stopPropagation();
+      setValidation(false);
     }
 
     try {
-      console.log("Enter try");
       const res = await login({
         variables: { ...userFormData },
       });
 
-      console.log(`Data: ${res}`);
+      //console.log(`Data: ${res}`);
 
       const data = res.data;
-
-      // const { token } = data.login;
-
-      // console.log(token);
       Auth.login(data.login.token);
     } catch (err) {
-      console.log("Enter Catch");
-      console.error(err);
+      //console.error(err);
       setShowAlert(true);
     }
 
@@ -108,10 +103,9 @@ function LoginForm() {
             </a>
           </div>
           <div
-            className="alert"
+            className={showAlert ? "alert" : "alert hidden"}
             dismissible="true"
             onClose={() => setShowAlert(false)}
-            show={showAlert.toString()}
             variant="danger"
           >
             Oops! Your credentials are incorrect!
