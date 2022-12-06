@@ -1,0 +1,240 @@
+.create-character-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+
+    .create-character-form {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 1rem 1rem 4rem 8rem;
+
+        h1{
+            display: flex;
+            justify-content: center;
+            text-decoration: none;
+            font-family: 'Hind', sans-serif;
+            color: #ff4800;
+            font-size: 1.5rem;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        h4{
+            font-family: 'Hind', sans-serif;
+            color: #ff4800;
+            font-size: .55rem;
+            margin-bottom: .5rem;
+        }
+
+        #charName{
+            margin-bottom: .5rem;
+            height: 2rem;
+            padding-left: 1rem;
+            border-radius: none;
+            border: none;
+            background-color: rgb(212, 212, 212);
+            color: rgb(72, 72, 72);
+            font-family: 'Hind', sans-serif;
+            font-weight: 600;
+        }
+
+        #charClass{
+            height: 2rem;
+            margin-bottom: .5rem;
+            height: 2rem;
+            padding-left: 1rem;
+            border-radius: none;
+            border: none;
+            background-color: rgb(212, 212, 212);
+            color: rgb(72, 72, 72);
+            font-family: 'Hind', sans-serif;
+            font-weight: 600;
+        }
+
+        #charRace{
+            height: 2rem;
+            margin-bottom: .5rem;
+            height: 2rem;
+            padding-left: 1rem;
+            border-radius: none;
+            border: none;
+            background-color: rgb(212, 212, 212);
+            color: rgb(72, 72, 72);
+            font-family: 'Hind', sans-serif;
+            font-weight: 600;
+        }
+
+        .character-stats-first-row {
+            max-width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            .LVL-container{
+                display: block;
+                width: 35%;
+
+                #charLvl{
+                    display: block;
+                    height: 2rem;
+                    padding-left: 1rem;
+                    border-radius: none;
+                    border: none;
+                    background-color: rgb(212, 212, 212);
+                    color: rgb(72, 72, 72);
+                    font-family: 'Hind', sans-serif;
+                    font-weight: 600;
+                }
+            }
+
+            .STR-container{
+                display: block;
+                width: 35%;
+
+                #charStr{
+                    display: block;
+                    height: 2rem;
+                    height: 2rem;
+                    padding-left: 1rem;
+                    border-radius: none;
+                    border: none;
+                    background-color: rgb(212, 212, 212);
+                    color: rgb(72, 72, 72);
+                    font-family: 'Hind', sans-serif;
+                    font-weight: 600;
+                }
+            }
+
+            .DEX-container{
+                display: block;
+                width: 35%;
+
+                #charDex{
+                    display: block;
+                    height: 2rem;
+                    height: 2rem;
+                    padding-left: 1rem;
+                    border-radius: none;
+                    border: none;
+                    background-color: rgb(212, 212, 212);
+                    color: rgb(72, 72, 72);
+                    font-family: 'Hind', sans-serif;
+                    font-weight: 600;
+                }
+            }
+
+            .CON-container{
+                display: block;
+                width: 35%;
+
+                #charCon {
+                    display: block;
+                    height: 2rem;
+                    height: 2rem;
+                    padding-left: 1rem;
+                    border-radius: none;
+                    border: none;
+                    background-color: rgb(212, 212, 212);
+                    color: rgb(72, 72, 72);
+                    font-family: 'Hind', sans-serif;
+                    font-weight: 600;
+                }
+            }
+
+            .INTEL-container{
+                display: block;
+                width: 35%;
+
+                #charInt {
+                    display: block;
+                    height: 2rem;
+                    height: 2rem;
+                    padding-left: 1rem;
+                    border-radius: none;
+                    border: none;
+                    background-color: rgb(212, 212, 212);
+                    color: rgb(72, 72, 72);
+                    font-family: 'Hind', sans-serif;
+                    font-weight: 600;
+                }
+            }
+
+            .WIS-container{
+                display: block;
+                width: 35%;
+
+                #charWis {
+                    display: block;
+                    height: 2rem;
+                    height: 2rem;
+                    padding-left: 1rem;
+                    border-radius: none;
+                    border: none;
+                    background-color: rgb(212, 212, 212);
+                    color: rgb(72, 72, 72);
+                    font-family: 'Hind', sans-serif;
+                    font-weight: 600;
+                }
+            }
+
+            .CHAR-container{
+                display: block;
+                width: 35%;
+
+                #charCha {
+                    display: block;
+                    height: 2rem;
+                    height: 2rem;
+                    padding-left: 1rem;
+                    border-radius: none;
+                    border: none;
+                    background-color: rgb(212, 212, 212);
+                    color: rgb(72, 72, 72);
+                    font-family: 'Hind', sans-serif;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+
+            
+
+        .btn {
+            border: none;
+            padding: 1rem;
+            background-color: #ff4800;
+            font-family: 'Hind', sans-serif;
+            display: flex;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            width: 100%;
+            margin: 2rem;
+        }
+    }
+
+    .upload-section {
+        width: 50%;
+        border-color: #ff4800;
+        border-style: solid;
+        border-width: .25rem;
+        margin: 1rem;
+
+        .input-fields{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            margin: 2rem;
+            
+            #myFile{
+                margin: 2rem;
+                width: 25%;
+            }
+        }
+    }
+
+    
