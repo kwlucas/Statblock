@@ -171,7 +171,7 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(_id: ID!): User
-    characters(user: ID): [Character]
+    characters(userId: ID!): [Character]
     character(_id: ID!): Character
     statset(_id: ID!): Statset
   }
