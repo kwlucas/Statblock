@@ -30,16 +30,20 @@ query getCharacters($userId: ID!) {
 `;
 
 export const QUERY_CHARACTER = gql`
-  query getCharacter($characterID: ID) {
-    character(_id: $characterID) {
+query getCharacter($characterId: ID!) {
+  character(characterId: $characterId) {
+    _id
+    owner {
       _id
-      name
-      owner
-      race
-      description
-      statset
+    }
+    name
+    description
+    race
+    statset {
+      _id
     }
   }
+}
 `;
 
 export const QUERY_STATSET = gql`

@@ -172,7 +172,7 @@ const typeDefs = gql`
     users: [User]
     user(_id: ID!): User
     characters(userId: ID!): [Character]
-    character(_id: ID!): Character
+    character(characterId: ID!): Character
     statset(_id: ID!): Statset
   }
 
