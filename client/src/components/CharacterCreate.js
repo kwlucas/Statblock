@@ -275,10 +275,11 @@ function CharacterCreate() {
             Proceed
           </button>
         </form>
-        <form action="/action_page.php" className="upload-section">
+        <form className="upload-section">
           <div className="input-fields">
             <input type="file" id="myFile" name="" />
-            <input type="submit" />
+            <div>Image Goes Here</div>
+            <button className="btn" type="submit" >Upload</button>
           </div>
         </form>
       </div>
