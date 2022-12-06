@@ -64,12 +64,12 @@ function LoginForm() {
         <section className="login-container">
           <div className="form-title">Login</div>
           <div className="input-section">
-            <label htmlFor="textEmail" id="label-input">
+            <label htmlFor="textEmailLogin" id="label-input">
               Email
             </label>
             <input
               type="email"
-              id="textEmail"
+              id="textEmailLogin"
               className="inputBox"
               onChange={handleInputChange}
               value={userFormData.email}
@@ -77,12 +77,12 @@ function LoginForm() {
             />
           </div>
           <div className="input-section">
-            <label htmlFor="textPassword" id="label-input">
+            <label htmlFor="textPasswordLogin" id="label-input">
               Password
             </label>
             <input
               type="password"
-              id="textPassword"
+              id="textPasswordLogin"
               className="inputBox"
               onChange={handleInputChange}
               value={userFormData.password}
