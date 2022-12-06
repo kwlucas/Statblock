@@ -225,14 +225,21 @@ function CharacterCreate() {
               />
             </div>
           </div>
-          <button type="button" className="btn" onClick={handleFormSubmit}>
-            Proceed
-          </button>
+          <div className="button-section">
+            <button type="button" className="btn" onClick={handleFormSubmit}>
+              Proceed
+            </button>
+          </div>
         </form>
         <form action="/action_page.php" className="upload-section">
           <div className="input-fields">
-            <input type="file" id="myFile" name="" />
-            <input type="submit" />
+            <input
+              type="file"
+              id="myFile"
+              name="filename"
+              className="choose-file-button"
+            />
+            <input type="submit" className="submit-button" />
           </div>
         </form>
       </div>
