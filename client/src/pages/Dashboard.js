@@ -40,14 +40,14 @@ import { useQuery } from "@apollo/client";
 
 function Dashboard() {
   const userData = Auth.getUser().data;
-  console.log(userData);
+  //console.log(userData);
   const { data } = useQuery(QUERY_CHARACTERS, {
     variables: { userId: userData._id }
   });
   let characters;
   if (data) {
     characters = data.characters;
-    console.log(characters);
+    //console.log(characters);
   }
   return (
     <>

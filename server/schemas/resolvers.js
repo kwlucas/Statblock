@@ -16,8 +16,8 @@ const resolvers = {
       return characters;
     },
     character: async (parent, { characterId }, context) => {
-      console.log(characterId);
-      console.log(context.user);
+      //console.log(characterId);
+      //console.log(context.user);
       const character = await Character.findById(characterId);
       return character;
       // if (context.user) {
