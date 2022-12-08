@@ -158,7 +158,7 @@ This application is covered under the [MIT License](https://opensource.org/licen
 
 ## Resources
 
-- GitHub Repo: [https://github.com/dpk5e7/evRoute](https://github.com/kwlucas/Statblock)
+- GitHub Repo: [https://github.com/kwlucas/Statblock](https://github.com/kwlucas/Statblock)
 - Heroku Hosted URL: TBD
 
 
