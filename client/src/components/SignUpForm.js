@@ -124,9 +124,9 @@ function SignUpForm() {
             </div>
             <div className="login-section">
               Already have an account?{" "}
-              <a href="/login" className="login-link">
+              <Link to="/login" className="login-link">
                 Login
-              </a>
+              </Link>
             </div>
             <div
               className={showAlert ? "alert" : "alert hidden"}
