@@ -98,10 +98,10 @@ function LoginForm() {
 
           <div className="sign-up-section">
             Don't have an account yet,
-            <a href="/signup" className="sign-up-link">
+            <Link href="/signup" className="sign-up-link">
               {" "}
               Sign Up
-            </a>
+            </Link>
           </div>
           <div
             className={showAlert ? "alert" : "alert hidden"}
