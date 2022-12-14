@@ -1,5 +1,4 @@
 // Import components
-// import CharacterCreate from "../components/CharacterCreate";
 import CharacterCard from "../components/CharacterCard";
 // import CharacterCreate from "../components/characterCreate";
 
@@ -41,7 +40,7 @@ const testCharacters = [
 function Dashboard() {
   const userData = Auth.getUser();
   const { data } = useQuery(QUERY_CHARACTERS, {
-    variables: { user: userData._id }
+    variables: { user: userData._id },
   });
   let characters;
   if (data) {
@@ -56,8 +55,14 @@ function Dashboard() {
         </Link>
       </div>
       <div className="dashboard-section">
-        {testCharacters.map((item, index) => (
+        {/* {testCharacters.map((item, index) => (
           <CharacterCard key={index} character={item} />
+        ))} */}
+
+        {testCharacters.map((item, index) => (
+          <Link to="/characterSheet" className="character-card-link">
+            <CharacterCard key={index} character={item} />
+          </Link>
         ))}
       </div>
     </>

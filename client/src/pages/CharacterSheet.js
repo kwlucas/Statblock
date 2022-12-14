@@ -6,7 +6,7 @@ import CharacterCard from "../components/CharacterCard";
 const testCharacters = [
   {
     // image: { dndOrc },
-    class: "",
+    class: "Rogue",
     race: "Elf",
     level: 1,
     abilities: {
